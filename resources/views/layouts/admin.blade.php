@@ -19,10 +19,10 @@
     <body class="font-sans antialiased h-full">
         @include('messages.welcomeMessage')
         <div x-data="{ open: false }">
-            @include('menu_parts.drivers.sidebar')
+            @include('menu_parts.admin.sidebar')
 
             <div class="md:pl-64 flex flex-col">
-            @include('menu_parts.drivers.navbar')
+            @include('menu_parts.admin.navbar')
             <main class="flex-1">
             @yield('content')
             </main>
