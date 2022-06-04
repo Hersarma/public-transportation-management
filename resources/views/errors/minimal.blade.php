@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <div class="py-4">
-                    <a href="{{ route('home') }}" class="ml-4 text-lg text-gray-500 uppercase tracking-wider underline">Vrati se na početnu stranu</a>
+                    <a href="{{ route('homeDrivers') }}" class="ml-4 text-lg text-gray-500 uppercase tracking-wider underline">Vrati se na početnu stranu</a>
                 </div>
                 
             </div>

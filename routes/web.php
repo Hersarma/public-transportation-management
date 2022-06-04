@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-
+use App\Http\Controllers\Admin\AdminHomeController;
+use App\Http\Controllers\Drivers\DriversHomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,11 +14,12 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::middleware('auth')->group(function (){
-    Route::get('/', [HomeController::class, 'index'])->name('home');
-    Route::get('/dashboard', [HomeController::class, 'index'])->name('home');
+Route::group(['middleware' => 'auth', 'namespace' => 'drivers'], function (){
+
+    Route::get('/', [DriversHomeController::class, 'index'])->name('homeDrivers');
+    Route::get('/dashboard', [DriversHomeController::class, 'index'])->name('homeDrivers');
 });
-Route::middleware('auth', 'role:admin')->group(function (){
-    Route::get('/admin', [HomeController::class, 'indexAdmin'])->name('admin');
+Route::group(['middleware' => ['auth', 'role:admin']], function (){
+    Route::get('/admin', [AdminHomeController::class, 'index'])->name('homeAdmin');
 });
 require __DIR__.'/auth.php';
