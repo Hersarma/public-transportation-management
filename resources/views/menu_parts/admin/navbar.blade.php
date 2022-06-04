@@ -1,5 +1,4 @@
-
-<div class="sticky top-0 z-10 flex-shrink-0 flex h-16 bg-gradient-to-r from-gray-700 to-gray-600">
+<div class="sticky top-0 z-10 flex-shrink-0 flex h-16 bg-gray-700">
       <button @click="open =! open" type="button" class="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden">
         <span class="sr-only">Open sidebar</span>
         <!-- Heroicon name: outline/menu-alt-2 -->
@@ -10,12 +9,15 @@
       <div class="flex-1 px-8 flex justify-between">
         <div class="flex-1 flex">
           <div class="w-full flex md:ml-0">
-             <a href="{{ route('homeAdmin') }}" class="text-white group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md" aria-current="page">
+             <a href="{{ route('homeAdmin') }}" class="mr-4 text-white group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md {{ Request::is('admin') ? 'underline underline-offset-8 decoration-yellow-400' : '' }}" aria-current="page">
             
             <svg class="mr-4 flex-shrink-0 h-6 w-6 text-yellow-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
             </svg>
             Početna
+          </a>
+          <a href="{{ route('homeDrivers') }}" class="text-white flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md" aria-current="page">
+            Vozači
           </a>
           </div>
         </div>
