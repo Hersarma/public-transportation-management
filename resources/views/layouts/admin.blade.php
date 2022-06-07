@@ -22,7 +22,7 @@
         <div x-data="{ open: false }">
             @include('menu_parts.admin.sidebar')
 
-            <div class="md:pl-64 flex flex-col">
+            <div class="lg:pl-64 flex flex-col">
             @include('menu_parts.admin.navbar')
             <main class="flex-1">
             @yield('content')
