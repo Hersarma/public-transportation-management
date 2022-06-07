@@ -17,7 +17,7 @@
             Početna
           </a>
           <a href="{{ route('homeDrivers') }}" class="text-white flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md" aria-current="page">
-            Vozači
+            Za Vozače
           </a>
           </div>
         </div>
