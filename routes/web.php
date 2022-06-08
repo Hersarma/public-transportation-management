@@ -13,13 +13,14 @@ use App\Http\Controllers\Drivers\DriversHomeController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::group(['middleware' => 'auth', 'namespace' => 'drivers'], function (){
-
+Route::middleware('auth')->group(function () {
     Route::get('/', [DriversHomeController::class, 'index'])->name('homeDrivers');
     Route::get('/dashboard', [DriversHomeController::class, 'index'])->name('homeDrivers');
 });
-Route::group(['middleware' => ['auth', 'role:admin']], function (){
+
+
+Route::middleware('auth', 'role:admin')->group(function () {
     Route::get('/admin', [AdminHomeController::class, 'index'])->name('homeAdmin');
 });
+
 require __DIR__.'/auth.php';
