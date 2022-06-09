@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminHomeController;
+use App\Http\Controllers\Admin\VehicleController;
 use App\Http\Controllers\Drivers\DriversHomeController;
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,6 +22,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth', 'role:admin')->group(function () {
     Route::get('/admin', [AdminHomeController::class, 'index'])->name('homeAdmin');
+    Route::resource('vehicles', VehicleController::class);
 });
 
 require __DIR__.'/auth.php';
