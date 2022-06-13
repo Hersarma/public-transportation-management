@@ -6,7 +6,7 @@
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h7" />
         </svg>
       </button>
-      <div class="flex-1 px-8 flex justify-between">
+      <div class="flex-1 px-2 lg:px-8 flex justify-between">
         <div class="flex-1 flex">
           <div class="w-full flex md:ml-0">
              <a href="{{ route('homeAdmin') }}" class="mr-4 text-white group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md {{ Request::is('admin') ? 'underline underline-offset-8 decoration-yellow-400' : '' }}" aria-current="page">

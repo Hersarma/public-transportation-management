@@ -15,6 +15,23 @@ return new class extends Migration
     {
         Schema::create('vehicles', function (Blueprint $table) {
             $table->id();
+            $table->string('registrationPlate')->unique();
+            $table->date('firstRegistrationDate');
+            $table->date('trafficLicenseIssuedDate');
+            $table->string('fname');
+            $table->string('lname');
+            $table->string('residenceAddress');
+            $table->string('vehicleManufacturer');
+            $table->string('vehicleModel');
+            $table->string('chassisNumber');
+            $table->string('allowedWeight');
+            $table->string('weight');
+            $table->date('trafficLicenseExpirationDate');
+            $table->string('cylinderCapacity');
+            $table->string('horsepower');
+            $table->string('fuleType');
+            $table->string('seatingCapacity');
+            $table->string('standingCapacity');
             $table->timestamps();
         });
     }

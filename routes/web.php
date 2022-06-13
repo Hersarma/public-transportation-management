@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\VehicleController;
 use App\Http\Controllers\Drivers\DriversHomeController;
 use App\Http\Controllers\GpsController;
+use App\Http\Controllers\Admin\SearchController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,11 @@ Route::middleware('auth', 'role:admin')->group(function () {
 
     /*GPS*/
     Route::get('/gps', [GpsController::class, 'index'])->name('gps');
+
+    /*Search*/
+    Route::get('searchVehicle', [SearchController::class, 'searchVehicle']);
+
+
 });
 
 require __DIR__.'/auth.php';

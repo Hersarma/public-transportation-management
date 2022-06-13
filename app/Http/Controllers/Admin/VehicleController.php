@@ -15,7 +15,8 @@ class VehicleController extends Controller
      */
     public function index()
     {
-        return view('admin.vehicles.index');
+        $vehicles = Vehicle::orderBy('vehicleManufacturer', 'asc')->simplePaginate(1);
+        return view('admin.vehicles.index', compact('vehicles'));
     }
 
     /**
