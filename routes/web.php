@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\VehicleController;
 use App\Http\Controllers\Drivers\DriversHomeController;
+use App\Http\Controllers\GpsController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,12 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth', 'role:admin')->group(function () {
     Route::get('/admin', [AdminHomeController::class, 'index'])->name('homeAdmin');
+
+    /*Vehicles*/
     Route::resource('vehicles', VehicleController::class);
+
+    /*GPS*/
+    Route::get('/gps', [GpsController::class, 'index'])->name('gps');
 });
 
 require __DIR__.'/auth.php';
