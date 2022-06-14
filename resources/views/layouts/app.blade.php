@@ -18,18 +18,15 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased h-full">
-        @include('messages.welcomeMessage')
+         @include('messages.welcomeMessage')
         <div x-data="{ open: false }">
             @include('menu_parts.drivers.sidebar')
-
-            <div class="md:pl-64 flex flex-col">
+            <div class="lg:pl-64 flex flex-col">
             @include('menu_parts.drivers.navbar')
-            <main class="flex-1">
-            @yield('content')
-            </main>
             </div>
         </div>
-        
-
+        <main class="lg:pl-64 flex-1">
+        @yield('content')
+        </main>
     </body>
 </html>
