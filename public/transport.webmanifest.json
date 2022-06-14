@@ -1,0 +1,22 @@
+{
+  "name": "Transporter",
+  "short_name": "Transporter",
+  "theme_color": "#374151",
+  "background_color": "#374151",
+  "display": "standalone",
+  "Scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "assets/img/applogo.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/img/user.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    }
+  ],
+  "splash_pages": null
+}
