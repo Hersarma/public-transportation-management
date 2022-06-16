@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <link rel="icon" type="logo.png" href="https://transport.hersarma.in.rs/img/android-launchericon-144-144.png">
+        <link rel="icon" type="logo.png" href="https://transport.hersarma.in.rs/img/manifest_images/transportlogo512.png">
         <title>{{ config('app.name', 'Laravel') }}</title>
         
         <!-- Fonts -->
@@ -17,8 +17,8 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body>
-        <div class="font-sans text-gray-900 antialiased">
-            {{ $slot }}
+        <div class="font-sans bg-gray-600 antialiased">
+            @yield('content')
         </div>
     </body>
 </html>

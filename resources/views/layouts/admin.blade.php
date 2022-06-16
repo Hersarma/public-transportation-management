@@ -13,7 +13,7 @@
         <meta name="msapplication-starturl" content="/">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <link rel="icon" type="logo.png" href="https://transport.hersarma.in.rs/img/applogo.png">
+        <link rel="icon" type="logo.png" href="https://transport.hersarma.in.rs/img/manifest_images/transportlogo512.png">
         <link rel="apple-touch-icon" type="logo.png" href="https://transport.hersarma.in.rs/img/manifest_images/transportlogo192.png">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
