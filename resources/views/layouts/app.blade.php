@@ -29,6 +29,7 @@
         <script src="{{ asset('js/serviceWorker.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased h-full">
+        @include('messages.installPromt')
          @include('messages.welcomeMessage')
         <div x-data="{ open: false }">
             @include('menu_parts.drivers.sidebar')
