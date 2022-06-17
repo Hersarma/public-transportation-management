@@ -108,7 +108,7 @@
    
     <div class="flex flex-col flex-grow bg-gradient-to-b from-gray-700 to-gray-600 pt-2 pb-2 overflow-y-auto">
       <div class="flex items-center flex-shrink-0 px-4">
-        <img class="h-14 w-auto" src="img/applogo.png" alt="logo">
+        <img class="h-14 w-auto" src="/img/applogo.png" alt="logo">
         <p class="ml-4 text-lg leading-6 font-medium text-white">Admin</p>
       </div>
       <nav class="mt-5 flex-1 flex flex-col divide-y divide-yellow-400 overflow-y-auto" aria-label="Sidebar">

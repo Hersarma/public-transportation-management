@@ -31,6 +31,7 @@
         <script src="{{ asset('js/search.js?v=').time() }}" defer></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+         @stack('scripts')
     </head>
     <body class="font-sans antialiased h-full">
         @include('messages.installPromt')

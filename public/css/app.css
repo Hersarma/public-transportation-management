@@ -954,9 +954,6 @@ select {
 .max-w-0 {
   max-width: 0rem;
 }
-.max-w-sm {
-  max-width: 24rem;
-}
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -2169,6 +2166,11 @@ select {
     padding-right: 2rem;
   }
 
+  .sm\:px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
   .sm\:pr-6 {
     padding-right: 1.5rem;
   }
@@ -2247,6 +2249,11 @@ select {
     padding-top: 2.5rem;
     padding-bottom: 2.5rem;
   }
+
+  .md\:px-2 {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
 }
 @media (min-width: 1024px) {
 
@@ -2303,6 +2310,11 @@ select {
   .lg\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+
+  .lg\:px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   .lg\:pl-64 {
