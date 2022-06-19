@@ -6,10 +6,10 @@
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h7" />
         </svg>
       </button>
-      <div class="flex-1 px-8 flex justify-between">
+      <div class="flex-1 px-2 lg:px-8 flex justify-between">
         <div class="flex-1 flex">
           <div class="w-full flex md:ml-0">
-             <a href="{{ route('homeDrivers') }}" class="mr-4 text-white group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md {{ Request::is('dashboard') ? 'underline underline-offset-8 decoration-yellow-400' : '' }}" aria-current="page">
+             <a href="{{ route('homeDrivers') }}" class="mr-2 text-white group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md {{ Request::is('dashboard') ? 'underline underline-offset-8 decoration-yellow-400' : '' }}" aria-current="page">
             
             <svg class="mr-4 flex-shrink-0 h-6 w-6 text-yellow-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
@@ -23,7 +23,7 @@
           @endrole
           </div>
         </div>
-        <div class="ml-4 flex items-center md:ml-6">
+        <div class="flex items-center md:ml-6">
           <button type="button" class="p-1 rounded-full text-white hover:text-gray-200">
             <span class="sr-only">View notifications</span>
             <!-- Heroicon name: outline/bell -->
@@ -33,7 +33,7 @@
           </button>
 
           <!-- Profile dropdown -->
-          <div x-data="{ open: false }" class="ml-3 relative">
+          <div x-data="{ open: false }" class="ml-2 relative">
             <div>
               <button @click="open =! open" type="button" class="max-w-xs rounded-full flex items-center text-sm lg:p-2" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                 <span class="ml-1 text-white text-sm font-medium"><span class="sr-only">Open user menu for </span>{{ auth()->user()->name }}</span>

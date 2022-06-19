@@ -1,10 +1,11 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminHomeController;
+use App\Http\Controllers\Admin\SearchController;
 use App\Http\Controllers\Admin\VehicleController;
 use App\Http\Controllers\Drivers\DriversHomeController;
 use App\Http\Controllers\GpsController;
-use App\Http\Controllers\Admin\SearchController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +18,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::middleware('auth')->group(function () {
-    Route::get('/', [DriversHomeController::class, 'index'])->name('homeDrivers');
+    Route::get('/', [HomeController::class, 'home'])->name('home');
     Route::get('/dashboard', [DriversHomeController::class, 'index'])->name('homeDrivers');
+
+    /*GPS*/
+    Route::get('/gpsDrivers', [GpsController::class, 'indexDrivers'])->name('gpsDrivers');
 });
 
 
@@ -29,7 +33,7 @@ Route::middleware('auth', 'role:admin')->group(function () {
     Route::resource('vehicles', VehicleController::class);
 
     /*GPS*/
-    Route::get('/gps', [GpsController::class, 'index'])->name('gps');
+    Route::get('/gpsAdmin', [GpsController::class, 'indexAdmin'])->name('gpsAdmin');
 
     /*Search*/
     Route::get('searchVehicle', [SearchController::class, 'searchVehicle']);

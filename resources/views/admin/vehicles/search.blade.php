@@ -1,9 +1,9 @@
 @foreach($vehicles as $vehicle)
         <tr>
           <td class="w-full max-w-0 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:w-auto sm:max-w-none sm:pl-6">
-            {{ $vehicle->vehicleManufacturer }}
+            {{ ucfirst($vehicle->vehicleManufacturer) }}
             <dl class="font-normal lg:hidden">
-              <dd class="mt-1 truncate text-gray-700">{{ $vehicle->vehicleModel }}</dd>
+              <dd class="mt-1 truncate text-gray-700">{{ ucfirst($vehicle->vehicleModel) }}</dd>
               <dd class="mt-1 truncate text-gray-500 sm:hidden">{{ strtoupper($vehicle->registrationPlate) }}</dd>
             </dl>
           </td>
