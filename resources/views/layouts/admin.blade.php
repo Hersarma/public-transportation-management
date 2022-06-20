@@ -32,10 +32,16 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
          @stack('scripts')
+        <style>
+        [x-cloak] {
+            display: none !important;
+        }
+        </style>
     </head>
     <body class="font-sans antialiased h-full">
         @include('messages.installPromt')
         @include('messages.welcomeMessage')
+        @include('messages.crudMessage')
         <div x-data="{ open: false }">
             @include('menu_parts.admin.sidebar')
             <div class="lg:pl-64 flex flex-col">

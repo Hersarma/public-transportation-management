@@ -13,6 +13,9 @@
           <td class="py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
             <a href="#" class="text-indigo-600 hover:text-indigo-900">Prikaži</a>
           </td>
+          <td class="py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+              <button @click="open = true" class="text-red-600 hover:text-red-900">Izbriši</button>
+          </td>
         </tr>
 @endforeach
 @if($vehicles->isEmpty())

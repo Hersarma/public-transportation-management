@@ -14,7 +14,9 @@ class SearchController extends Controller
         
         $query = str_replace(" ", "%", $query);
         $vehicles = Vehicle::
-        where('registrationPlate', 'like', '%' . $query . '%')->orderBy('registrationPlate', 'asc')->simplePaginate(1);
+        where('registrationPlate', 'like', '%' . $query . '%')
+        ->orWhere('vehicleManufacturer', 'like', '%' . $query . '%')
+        ->orderBy('vehicleManufacturer', 'asc')->simplePaginate(10);
         
         return view('admin.vehicles.search', compact('vehicles'))->render();
 

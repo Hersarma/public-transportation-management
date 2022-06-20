@@ -15,7 +15,7 @@ class VehicleController extends Controller
      */
     public function index()
     {
-        $vehicles = Vehicle::orderBy('vehicleManufacturer', 'asc')->simplePaginate(1);
+        $vehicles = Vehicle::orderBy('vehicleManufacturer', 'asc')->simplePaginate(10);
         return view('admin.vehicles.index', compact('vehicles'));
     }
 
@@ -37,7 +37,31 @@ class VehicleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = request()->validateWithBag('create_vehicle', [
+            'registrationPlate' => 'required|unique:vehicles',
+            'firstRegistrationDate' => 'required',
+            'trafficLicenseIssuedDate'=> 'required',
+            'fname'=> 'required',
+            'lname'=> 'required',
+            'residenceAddress'=> 'required',
+            'vehicleManufacturer'=> 'required',
+            'vehicleModel'=> 'required',
+            'chassisNumber'=> 'required|unique:vehicles',
+            'allowedWeight'=> 'required',
+            'weight'=> 'required',
+            'trafficLicenseExpirationDate'=> 'required',
+            'cylinderCapacity'=> 'required',
+            'horsepower'=> 'required',
+            'fuleType'=> 'required',
+            'seatingCapacity'=> 'nullable',
+            'standingCapacity'=> 'nullable',
+            'currentMileage'=> 'required|numeric'
+        ]);
+        Vehicle::create($validate);
+
+        return redirect(route('vehicles.index'))->with('crudMessage', 'Vozilo uspešno kreirano.');
+
+        //dd($validate);
     }
 
     /**
@@ -82,6 +106,8 @@ class VehicleController extends Controller
      */
     public function destroy(Vehicle $vehicle)
     {
-        //
+        $vehicle->delete();
+
+        return redirect(route('vehicles.index'))->with('crudMessage', 'Vozilo uspešno izbrisano.');
     }
 }

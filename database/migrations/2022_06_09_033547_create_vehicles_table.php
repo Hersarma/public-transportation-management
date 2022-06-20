@@ -30,8 +30,9 @@ return new class extends Migration
             $table->string('cylinderCapacity');
             $table->string('horsepower');
             $table->string('fuleType');
-            $table->string('seatingCapacity');
-            $table->string('standingCapacity');
+            $table->string('seatingCapacity')->nullable();
+            $table->string('standingCapacity')->nullable();
+            $table->integer('currentMileage');
             $table->timestamps();
         });
     }

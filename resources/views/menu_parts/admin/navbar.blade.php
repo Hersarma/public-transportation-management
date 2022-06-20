@@ -41,7 +41,7 @@
                 </svg>
               </button>
             </div>
-            <div x-show="open" 
+            <div x-cloak x-show="open" 
             x-transition:enter="transition ease-in duration-300"
             x-transition:enter-start="opacity-0 scale-90"
             x-transition:enter-end="opacity-100 scale-100"

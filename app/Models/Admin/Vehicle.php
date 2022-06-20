@@ -4,10 +4,17 @@ namespace App\Models\Admin;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon;
 
 class Vehicle extends Model
 {
     use HasFactory;
+
+    protected $dates = [
+        'firstRegistrationDate',
+        'trafficLicenseIssuedDate',
+        'trafficLicenseExpirationDate'
+    ];
 
     protected $fillable = [
         'registrationPlate', 
@@ -26,6 +33,8 @@ class Vehicle extends Model
         'horsepower',
         'fuleType',
         'seatingCapacity',
-        'standingCapacity'
+        'standingCapacity',
+        'currentMileage'
     ];
+
 }
