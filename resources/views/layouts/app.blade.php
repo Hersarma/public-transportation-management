@@ -16,7 +16,7 @@
         <link rel="icon" type="logo.png" href="https://transport.hersarma.in.rs/img/manifest_images/transportlogo512.png">
         <link rel="apple-touch-icon" type="logo.png" href="https://transport.hersarma.in.rs/img/manifest_images/transportlogo192.png">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>Transporter</title>
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">

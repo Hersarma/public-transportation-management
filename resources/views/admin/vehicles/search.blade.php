@@ -24,6 +24,6 @@
 @endforeach
 @if($vehicles->isEmpty())
   <tr>
-    <td colspan="5" class="text-center py-8">Nema rezultata</td>
+    <td colspan="6" class="text-center py-8">Nema rezultata</td>
   </tr>
 @endif
