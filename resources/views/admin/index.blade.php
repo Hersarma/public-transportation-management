@@ -18,7 +18,7 @@
         
         <div class="absolute bottom-0 inset-x-0 bg-gray-50 px-4 py-4 sm:px-6">
           <div class="text-sm">
-            <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500"> Prikaži sve<span class="sr-only"> Ukupno Vozila</span></a>
+            <a href="{{ route('vehicles.index') }}" class="font-medium text-indigo-600 hover:text-indigo-500"> Prikaži sve<span class="sr-only"> Ukupno Vozila</span></a>
           </div>
         </div>
       </dd>

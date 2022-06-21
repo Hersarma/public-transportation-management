@@ -48,12 +48,12 @@
       </thead>
       <tbody class="searchVehicle divide-y divide-gray-200 bg-white">
       	@include('admin.vehicles.search')
-        @include('admin.vehicles.modals.deleteVehicle')
         <!-- More people... -->
       </tbody>
       	
     </table>
 	{{ $vehicles->links() }}
+  @include('admin.vehicles.modals.deleteVehicle')
   </div>
 </div>
 <input type="hidden" name="hidden_page" id="hidden_page" value="1"/>
