@@ -25,6 +25,7 @@ class Vehicle extends Model
         'residenceAddress',
         'vehicleManufacturer',
         'vehicleModel',
+        'year',
         'chassisNumber',
         'allowedWeight',
         'weight',

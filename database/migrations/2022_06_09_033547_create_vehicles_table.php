@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('residenceAddress');
             $table->string('vehicleManufacturer');
             $table->string('vehicleModel');
+            $table->string('year');
             $table->string('chassisNumber');
             $table->string('allowedWeight');
             $table->string('weight');

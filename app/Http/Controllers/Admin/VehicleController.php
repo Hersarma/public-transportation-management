@@ -46,6 +46,7 @@ class VehicleController extends Controller
             'residenceAddress'=> 'required',
             'vehicleManufacturer'=> 'required',
             'vehicleModel'=> 'required',
+            'year' => 'required',
             'chassisNumber'=> 'required|unique:vehicles',
             'allowedWeight'=> 'required',
             'weight'=> 'required',
