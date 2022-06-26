@@ -15,7 +15,8 @@ class DriverController extends Controller
      */
     public function index()
     {
-        //
+        $drivers = Driver::orderBy('fname', 'asc')->simplePaginate(10);
+        return view('admin.drivers.index', compact('drivers'));
     }
 
     /**
@@ -36,7 +37,32 @@ class DriverController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request['categories']);
+        $validate = request()->validateWithBag('create_driver', [
+
+        'lname' => 'required',
+        'fname' => 'required',
+        'birthDate' => 'required',
+        'placeOfBirth' => 'required',
+        'driverLicenseIssuedDate' => 'required',
+        'driverLicenseExpirationDate' => 'required',
+        'driverLicenseIssuedBy' => 'required',
+        'driverLicenseId' => 'required',
+        'residence' => 'required'
+        ]);
+
+        $validateCategories = request()->validateWithBag('create_driver_categories', [
+            'items' => 'required'
+            
+        ]);
+
+        $driver = Driver::create($validate);
+
+        foreach($request->items as $category) {
+            $driver->driverCategories()->create($category);
+        }
+
+        return redirect(route('drivers.index'))->with('crudMessage', 'Vozač uspešno kreiran.');
     }
 
     /**

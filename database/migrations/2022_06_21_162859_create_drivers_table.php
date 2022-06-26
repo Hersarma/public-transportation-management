@@ -15,6 +15,15 @@ return new class extends Migration
     {
         Schema::create('drivers', function (Blueprint $table) {
             $table->id();
+            $table->string('lname');
+            $table->string('fname');
+            $table->date('birthDate');
+            $table->string('placeOfBirth');
+            $table->date('driverLicenseIssuedDate');
+            $table->date('driverLicenseExpirationDate');
+            $table->string('driverLicenseIssuedBy');
+            $table->string('driverLicenseId');
+            $table->string('residence');
             $table->timestamps();
         });
     }

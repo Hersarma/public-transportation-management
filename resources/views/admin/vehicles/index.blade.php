@@ -33,32 +33,14 @@
       @include('admin.vehicles.modals.create')
     </div>
   </div>
-  <div x-data="{open: false}" class="-mx-4 mt-8 overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:-mx-6 md:mx-0 md:rounded-lg">
-    <table class="min-w-full divide-y divide-gray-300">
-      <thead class="bg-gray-50">
-        <tr>
-          <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6 lg:hidden">Podaci</th>
-          <th scope="col" class="hidden py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6 lg:table-cell">Proizvođač</th>
-          <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">Model</th>
-          <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell">Registarska oznaka</th>
-          <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Vozač</th>
-          <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
-            <span class="sr-only">Prikaži</span>
-          </th>
-          <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
-            <span class="sr-only">Izbriši</span>
-          </th>
-        </tr>
-      </thead>
-      <tbody class="searchVehicle divide-y divide-gray-200 bg-white">
-      	@include('admin.vehicles.search')
-        <!-- More people... -->
-      </tbody>
-      	
-    </table>
-	{{ $vehicles->links() }}
-  @include('admin.vehicles.modals.deleteVehicle')
+  <div x-data="{open: false}">
+    <div class="searchVehicle -mx-4 mt-8 overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:-mx-6 md:mx-0 md:rounded-lg">
+    @include('admin.vehicles.search')
+  
+    </div>
+    @include('admin.vehicles.modals.deleteVehicle')
   </div>
+  
 </div>
 <input type="hidden" name="hidden_page" id="hidden_page" value="1"/>
 
