@@ -38,15 +38,14 @@
               
           </td>
         </tr>
-
         @endforeach
+        @if($drivers->isEmpty())
+        <tr>
+          <td colspan="6" class="text-center py-8">Nema rezultata</td>
+        </tr>
+        @endif
       </tbody>
         
     </table>
     {{ $drivers->links() }}
 
-@if($drivers->isEmpty())
-  <tr>
-    <td colspan="6" class="text-center py-8">Nema rezultata</td>
-  </tr>
-@endif
