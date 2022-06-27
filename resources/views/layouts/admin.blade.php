@@ -39,7 +39,7 @@
         </style>
     </head>
     <body class="font-sans antialiased h-full">
-        @include('messages.installPromt')
+        
         @include('messages.welcomeMessage')
         @include('messages.crudMessage')
         <div x-data="{ open: false }">

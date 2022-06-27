@@ -20,6 +20,15 @@ $(document).ready(function() {
 
         fetch_vehicle(query, page);
     });
+    $(document).on('click', '.paginationvehicles, .paginationsearchVehicle', function(event) {
+        event.preventDefault();
+        let page = $(this).attr('href').split('page=')[1];
+        $('#hidden_page').val(page);
+
+        let query = $('.search_vehicle').val();
+
+        fetch_vehicle(query, page);
+    });
 
 
     /*Search Driver*/

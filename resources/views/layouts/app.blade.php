@@ -34,7 +34,7 @@
         </style>
     </head>
     <body class="font-sans antialiased h-full">
-        @include('messages.installPromt')
+        
          @include('messages.welcomeMessage')
         <div x-data="{ open: false }">
             @include('menu_parts.drivers.sidebar')
