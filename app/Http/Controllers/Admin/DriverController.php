@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Driver;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class DriverController extends Controller
 {
@@ -47,7 +48,7 @@ class DriverController extends Controller
         'driverLicenseIssuedDate' => 'required',
         'driverLicenseExpirationDate' => 'required',
         'driverLicenseIssuedBy' => 'required',
-        'driverLicenseId' => 'required',
+        'driverLicenseId' => 'required|unique:drivers',
         'residence' => 'required'
         ]);
 

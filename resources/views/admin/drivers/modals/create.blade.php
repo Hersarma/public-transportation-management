@@ -55,7 +55,7 @@
                   <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
                     <label for="lname" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"> Prezime  <span class="font-bold ml-3">1.</span></label>
                     <div class="mt-1 sm:mt-0 sm:col-span-2">
-                      <input type="text" name="lname" id="lname" autocomplete="lname" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
+                      <input type="text" name="lname" id="lname" autocomplete="lname" value="{{ old('lname') }}" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
                       <p class="text-red-500 text-sm italic mt-4">
                         {{ $errors->create_driver->first('lname') }}
                       </p>
@@ -64,7 +64,7 @@
                   <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
                     <label for="fname" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"> Ime  <span class="font-bold ml-3">2.</span></label>
                     <div class="mt-1 sm:mt-0 sm:col-span-2">
-                      <input type="text" name="fname" id="fname" autocomplete="fname" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
+                      <input type="text" name="fname" id="fname" autocomplete="fname" value="{{ old('fname') }}" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
                       <p class="text-red-500 text-sm italic mt-4">
                         {{ $errors->create_driver->first('fname') }}
                       </p>
@@ -237,7 +237,7 @@
                         <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
                           <label for="placeOfBirth" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"> Mesto rođenja  <span class="font-bold ml-3">3.</span></label>
                           <div class="mt-1 sm:mt-0 sm:col-span-2">
-                            <input type="text" name="placeOfBirth" id="placeOfBirth" autocomplete="placeOfBirth" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
+                            <input type="text" name="placeOfBirth" id="placeOfBirth" autocomplete="placeOfBirth" value="{{ old('placeOfBirth') }}" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
                             <p class="text-red-500 text-sm italic mt-4">
                               {{ $errors->create_driver->first('placeOfBirth') }}
                             </p>
@@ -578,7 +578,7 @@
                                     <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
                                       <label for="driverLicenseIssuedBy" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"> Dozvolu izdao  <span class="font-bold ml-3">D.1</span></label>
                                       <div class="mt-1 sm:mt-0 sm:col-span-2">
-                                        <input type="text" name="driverLicenseIssuedBy" id="driverLicenseIssuedBy" autocomplete="driverLicenseIssuedBy" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
+                                        <input type="text" name="driverLicenseIssuedBy" id="driverLicenseIssuedBy" autocomplete="driverLicenseIssuedBy" value="{{ old('driverLicenseIssuedBy') }}" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
                                         <p class="text-red-500 text-sm italic mt-4">
                                           {{ $errors->create_driver->first('driverLicenseIssuedBy') }}
                                         </p>
@@ -587,7 +587,7 @@
                                     <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
                                       <label for="driverLicenseId" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"> Broj dozvole  <span class="font-bold ml-3">D.1</span></label>
                                       <div class="mt-1 sm:mt-0 sm:col-span-2">
-                                        <input type="text" name="driverLicenseId" id="driverLicenseId" autocomplete="driverLicenseId" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
+                                        <input type="text" name="driverLicenseId" id="driverLicenseId" autocomplete="driverLicenseId" value="{{ old('driverLicenseId') }}" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
                                         <p class="text-red-500 text-sm italic mt-4">
                                           {{ $errors->create_driver->first('driverLicenseId') }}
                                         </p>
@@ -596,7 +596,7 @@
                                     <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
                                       <label for="residence" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"> Prebivalište  <span class="font-bold ml-3">D.1</span></label>
                                       <div class="mt-1 sm:mt-0 sm:col-span-2">
-                                        <input type="text" name="residence" id="residence" autocomplete="residence" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
+                                        <input type="text" name="residence" id="residence" autocomplete="residence" value="{{ old('residence') }}" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
                                         <p class="text-red-500 text-sm italic mt-4">
                                           {{ $errors->create_driver->first('residence') }}
                                         </p>
@@ -612,7 +612,13 @@
                                   <div class="space-y-6 sm:space-y-5">
                                    
                                     <fieldset>
-                                      <legend class="text-lg font-medium text-gray-900">Kategorije</legend>
+                                      <legend id="category_errors" class="text-lg font-medium text-gray-900">Kategorije</legend>
+                                          @if($errors->create_driver_categories->any())
+                                        <p class="text-red-500 text-sm italic mt-4">
+                                         Morate izabrati minimum jednu kategoriju.
+                                        </p>
+                                        @endif
+                                       
                                       <div class="mt-4 border-t border-b border-gray-200 divide-y divide-gray-200">
                                         <div class="relative flex items-start py-4">
                                           <div class="min-w-0 flex-1 text-sm">

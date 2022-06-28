@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Admin\Driver;
+use App\Models\Admin\DriverCategories;
 use App\Models\Admin\Vehicle;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -26,6 +28,13 @@ class DatabaseSeeder extends Seeder
         $this->call(AdminSeeder::class);
         
         Vehicle::factory(35)->create();
+        Driver::factory(35)->create()->each(function($driver){
+            DriverCategories::create([
+                'driver_id' => $driver->id,
+                'categories' => 'B'
+            ]);
+          
+        });
         
     }
 }

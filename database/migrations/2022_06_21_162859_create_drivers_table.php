@@ -22,7 +22,7 @@ return new class extends Migration
             $table->date('driverLicenseIssuedDate');
             $table->date('driverLicenseExpirationDate');
             $table->string('driverLicenseIssuedBy');
-            $table->string('driverLicenseId');
+            $table->string('driverLicenseId')->unique();
             $table->string('residence');
             $table->timestamps();
         });

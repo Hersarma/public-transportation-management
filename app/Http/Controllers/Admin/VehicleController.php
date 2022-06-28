@@ -73,7 +73,7 @@ class VehicleController extends Controller
      */
     public function show(Vehicle $vehicle)
     {
-        dd($vehicle);
+        return view('admin.vehicles.show', compact('vehicle'));
     }
 
     /**

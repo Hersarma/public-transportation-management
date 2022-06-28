@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 
-<div class="flex items-center justify-between bg-white mx-8 my-8 px-4 py-4 shadow rounded-lg">
+<div class="flex items-center justify-between bg-white mx-2 my-3 lg:mx-8 lg:my-8 px-4 py-4 shadow rounded-lg">
       
         <div class="bg-gray-700 rounded-md px-4 py-3">
           <!-- Heroicon name: outline/users -->
@@ -24,7 +24,7 @@
       <p class="mt-2 text-sm text-gray-700">Lista svih vozača.</p>
     </div>
     <div 
-        @if(count($errors->create_driver) > 0)
+        @if(count($errors->create_driver) > 0 or count($errors->create_driver_categories) > 0)
         x-data="{open: true}"
         @endif 
         x-data="{open: false}" class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">

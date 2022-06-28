@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 
-<div class="flex items-center justify-between bg-white mx-8 my-8 px-4 py-4 shadow rounded-lg">
+<div class="flex items-center justify-between bg-white mx-2 my-3 lg:mx-8 lg:my-8 px-4 py-4 shadow rounded-lg">
       
         <div class="bg-gray-700 rounded-md px-4 py-3">
           <!-- Heroicon name: outline/users -->
