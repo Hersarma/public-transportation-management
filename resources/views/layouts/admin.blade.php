@@ -42,13 +42,13 @@
         
         @include('messages.welcomeMessage')
         @include('messages.crudMessage')
-        <div x-data="{ open: false }">
+        <div x-data="{ open: false }" class="overflow-hidden">
             @include('menu_parts.admin.sidebar')
-            <div class="lg:pl-64 flex flex-col">
+            
             @include('menu_parts.admin.navbar')
-            </div>
+           
         </div>
-        <main class="lg:pl-64 flex-1">
+        <main class="lg:ml-64 flex-1">
         @yield('content')
         </main>
     </body>

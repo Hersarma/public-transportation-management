@@ -31,7 +31,7 @@
               Vozni Park
             </a>
 
-            <a href="{{ route('drivers.index') }}" class="text-white hover:text-white hover:bg-gray-800 group flex items-center px-2 py-2 text-base font-medium rounded-md">
+            <a href="{{ route('drivers.index') }}" class="{{ Request::is('drivers', 'drivers/*') ? 'bg-gray-800' : '' }} text-white hover:text-white hover:bg-gray-800 group flex items-center px-2 py-2 text-base font-medium rounded-md">
               <!-- Heroicon name: outline/scale -->
               <svg class="mr-4 flex-shrink-0 h-6 w-6 text-yellow-400" stroke-width="2" stroke="currentColor" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
             <path d="M446.836 353.745a111.71 111.71 0 1 0 0-223.418 111.71 111.71 0 0 0 0 223.418zm0 74.473c102.829 0 186.182-83.353 186.182-186.182S549.665 55.855 446.836 55.855s-186.181 83.353-186.181 186.181 83.353 186.182 186.181 186.182zm-305.43 153.488A148.945 148.945 0 0 1 286.72 465.455h320.233a148.945 148.945 0 0 1 145.315 116.251l57.623 256.112H633.018v-74.473H716.8l-37.2-165.292a74.473 74.473 0 0 0-72.647-58.126H286.72a74.473 74.473 0 0 0-72.648 58.126l-37.2 165.292h102.4v74.473H83.783l57.623-256.112z" fill="currentColor"/>
