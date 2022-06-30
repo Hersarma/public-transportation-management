@@ -49,7 +49,7 @@ class VehicleFactory extends Factory
             'fname' => $this->faker->name(),
             'lname' => $this->faker->name(),
             'residenceAddress' => $this->faker->address(),
-            'year' => $this->faker->randomNumber(5, true),
+            'year' => $this->faker->date('Y'),
             'chassisNumber' => $this->faker->randomNumber(9, true),
             'allowedWeight' => $this->faker->randomNumber(4, true),
             'weight' => $this->faker->randomNumber(4, true),

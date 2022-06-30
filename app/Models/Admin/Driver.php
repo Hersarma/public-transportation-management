@@ -27,6 +27,7 @@ class Driver extends Model
 
         'lname',
         'fname',
+        'contact',
         'birthDate',
         'placeOfBirth',
         'driverLicenseIssuedDate',

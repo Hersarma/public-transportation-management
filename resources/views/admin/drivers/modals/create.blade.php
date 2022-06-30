@@ -13,15 +13,6 @@
   class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
   <div class="fixed z-10 inset-0 overflow-y-auto">
     <div class="flex items-end sm:items-center justify-center min-h-full p-4 text-center sm:p-0">
-      <!--
-      Modal panel, show/hide based on modal state.
-      Entering: "ease-out duration-300"
-      From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-      To: "opacity-100 translate-y-0 sm:scale-100"
-      Leaving: "ease-in duration-200"
-      From: "opacity-100 translate-y-0 sm:scale-100"
-      To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-      -->
       <div x-show="open" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100" x-transition:leave="ease-in duration-200" x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100" x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
         class="relative bg-white rounded-lg pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 max-w-7xl w-full">
         <div class="lg:px-8">
@@ -67,6 +58,15 @@
                       <input type="text" name="fname" id="fname" autocomplete="fname" value="{{ old('fname') }}" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
                       <p class="text-red-500 text-sm italic mt-4">
                         {{ $errors->create_driver->first('fname') }}
+                      </p>
+                    </div>
+                  </div>
+                  <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                    <label for="contact" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"> Broj telefona </label>
+                    <div class="mt-1 sm:mt-0 sm:col-span-2">
+                      <input type="text" name="contact" id="contact" autocomplete="contact" value="{{ old('contact') }}" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
+                      <p class="text-red-500 text-sm italic mt-4">
+                        {{ $errors->create_driver->first('contact') }}
                       </p>
                     </div>
                   </div>

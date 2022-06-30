@@ -21,6 +21,7 @@ class DriverFactory extends Factory
         return [
         'fname' => $this->faker->firstName(),
         'lname' => $this->faker->lastName(),
+        'contact' => $this->faker->phoneNumber(),
         'birthDate' => $this->faker->date('d-M-Y'),
         'placeOfBirth' => $this->faker->state(),
         'driverLicenseIssuedDate' => $this->faker->date('d-M-Y'),

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('lname');
             $table->string('fname');
+            $table->string('contact');
             $table->date('birthDate');
             $table->string('placeOfBirth');
             $table->date('driverLicenseIssuedDate');
@@ -24,6 +25,7 @@ return new class extends Migration
             $table->string('driverLicenseIssuedBy');
             $table->string('driverLicenseId')->unique();
             $table->string('residence');
+            $table->boolean('active')->default(0);
             $table->timestamps();
         });
     }

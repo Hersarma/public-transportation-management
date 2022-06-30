@@ -5,7 +5,7 @@
           <th scope="col" class="hidden py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6 lg:table-cell">Proizvođač</th>
           <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">Model</th>
           <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell">Registarska oznaka</th>
-          <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Vozač</th>
+          <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Kilometraža</th>
           <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
             <span class="sr-only">Prikaži</span>
           </th>
@@ -27,7 +27,7 @@
           </td>
           <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">{{ $vehicle->vehicleModel }}</td>
           <td class="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell">{{ strtoupper($vehicle->registrationPlate) }}</td>
-          <td class="px-3 py-4 text-sm text-gray-500">{{ $vehicle->fname }}</td>
+          <td class="px-3 py-4 text-sm text-gray-500">{{ $vehicle->currentMileage }} km</td>
           <td class="py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
             <a href="{{ route('vehicles.show', $vehicle) }}" class="text-indigo-600 hover:text-indigo-900">Prikaži</a>
           </td>

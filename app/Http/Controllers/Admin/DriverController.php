@@ -43,6 +43,7 @@ class DriverController extends Controller
 
         'lname' => 'required',
         'fname' => 'required',
+        'contact' => 'required',
         'birthDate' => 'required',
         'placeOfBirth' => 'required',
         'driverLicenseIssuedDate' => 'required',
