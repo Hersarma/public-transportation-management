@@ -14,7 +14,7 @@
         <p class="ml-16 text-sm font-medium text-gray-500 truncate">Ukupno Vozila</p>
       </dt>
       <dd class="ml-16 pb-6 flex items-baseline sm:pb-7">
-        <p class="text-2xl font-semibold text-gray-900">72</p>
+        <p class="text-2xl font-semibold text-gray-900">{{ $countVehicles }}</p>
         
         <div class="absolute bottom-0 inset-x-0 bg-gray-50 px-4 py-4 sm:px-6">
           <div class="text-sm">
@@ -36,7 +36,7 @@
         <p class="ml-16 text-sm font-medium text-gray-500 truncate">Ukupno Vozača</p>
       </dt>
       <dd class="ml-16 pb-6 flex items-baseline sm:pb-7">
-        <p class="text-2xl font-semibold text-gray-900">162</p>
+        <p class="text-2xl font-semibold text-gray-900">{{ $countDrivers }}</p>
         <div class="absolute bottom-0 inset-x-0 bg-gray-50 px-4 py-4 sm:px-6">
           <div class="text-sm">
             <a href="{{ route('drivers.index') }}" class="font-medium text-indigo-600 hover:text-indigo-500"> Prikaži sve<span class="sr-only"> Ukupno Vozača</span></a>
