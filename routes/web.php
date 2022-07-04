@@ -4,10 +4,10 @@ use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\DriverController;
 use App\Http\Controllers\Admin\SearchController;
 use App\Http\Controllers\Admin\VehicleController;
+use App\Http\Controllers\Admin\VignetteController;
 use App\Http\Controllers\Drivers\DriversHomeController;
 use App\Http\Controllers\GpsController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Admin\SettingsController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +33,8 @@ Route::middleware('auth', 'role:admin')->group(function () {
 
     /*Vehicles*/
     Route::resource('vehicles', VehicleController::class);
+    /*Vignette*/
+    Route::resource('vignette', VignetteController::class);
 
     /*Drivers*/
     Route::resource('drivers', DriverController::class);
@@ -44,9 +46,6 @@ Route::middleware('auth', 'role:admin')->group(function () {
     Route::get('searchVehicle', [SearchController::class, 'searchVehicle']);
     Route::get('searchDriver', [SearchController::class, 'searchDriver']);
    
-
-
-    Route::get('/settings/users', [SettingsController::class, 'userIndex'])->name('users_index');
 
 });
 

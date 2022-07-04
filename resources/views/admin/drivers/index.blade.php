@@ -18,7 +18,7 @@
      
     </div>
 <div class="px-4 sm:px-6 lg:px-8">
-  <div class="sm:flex sm:items-center">
+  <div class="flex justify-between items-center">
     <div class="sm:flex-auto">
       <h1 class="text-xl font-semibold text-gray-900">Vozači</h1>
       <p class="mt-2 text-sm text-gray-700">Lista svih vozača.</p>
@@ -27,14 +27,18 @@
         @if(count($errors->create_driver) > 0 or count($errors->create_driver_categories) > 0)
         x-data="{open: true}"
         @endif 
-        x-data="{open: false}" class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
-        <button @click="open = true" type="button" class="inline-flex items-center justify-center rounded-md border border-transparent bg-gray-700 px-4 py-2 text-sm font-medium text-yellow-400 shadow-sm hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 sm:w-auto">Dodaj vozača</button>
+        x-data="{open: false}" class="">
+        <button @click="open = true" type="button" class="inline-flex items-center justify-center rounded-md border border-transparent bg-gray-700 px-4 py-2 text-sm font-medium text-yellow-400 shadow-sm hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 sm:w-auto">Dodaj vozača<span class="ml-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
+        </svg>
+      </span></button>
       
       
       @include('admin.drivers.modals.create')
     </div>
   </div>
-  <div x-data="{open: false}">
+  <div x-data="{open: false}" class="relative">
     <div  class="searchDriver -mx-4 mt-8 overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:-mx-6 md:mx-0 md:rounded-lg">
     @include('admin.drivers.search')
   </div>

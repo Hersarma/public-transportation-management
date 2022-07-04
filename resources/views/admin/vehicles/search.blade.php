@@ -1,4 +1,4 @@
-<table class="min-w-full divide-y divide-gray-300">
+<table class="min-w-full divide-y divide-gray-300 mb-10 lg:mb-0">
       <thead class="bg-gray-50">
         <tr>
           <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6 lg:hidden">Podaci</th>
@@ -48,4 +48,10 @@
       </tbody>
         
     </table>
-  {{ $vehicles->links() }}
+    <div class="hidden md:block">
+          {{ $vehicles->links() }}
+    </div>
+    <div class="lg:hidden fixed bottom-0 w-full bg-gray-100">
+          {{ $vehicles->links() }}
+    </div>
+  

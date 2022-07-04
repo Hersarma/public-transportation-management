@@ -96,7 +96,55 @@ class VehicleController extends Controller
      */
     public function update(Request $request, Vehicle $vehicle)
     {
-        //
+        if ($request['registrationPlate'] == $vehicle->registrationPlate || $request['chassisNumber'] == $vehicle->chassisNumber) {
+            $validate = request()->validateWithBag('edit_vehicle', [
+            'registrationPlate' => 'required',
+            'firstRegistrationDate' => 'required',
+            'trafficLicenseIssuedDate'=> 'required',
+            'fname'=> 'required',
+            'lname'=> 'required',
+            'residenceAddress'=> 'required',
+            'vehicleManufacturer'=> 'required',
+            'vehicleModel'=> 'required',
+            'year' => 'required',
+            'chassisNumber'=> 'required',
+            'allowedWeight'=> 'required',
+            'weight'=> 'required',
+            'trafficLicenseExpirationDate'=> 'required',
+            'cylinderCapacity'=> 'required',
+            'horsepower'=> 'required',
+            'fuleType'=> 'required',
+            'seatingCapacity'=> 'nullable',
+            'standingCapacity'=> 'nullable',
+            'currentMileage'=> 'required|numeric'
+        ]);
+        } else {
+            $validate = request()->validateWithBag('edit_vehicle', [
+            'registrationPlate' => 'required|unique:vehicles',
+            'firstRegistrationDate' => 'required',
+            'trafficLicenseIssuedDate'=> 'required',
+            'fname'=> 'required',
+            'lname'=> 'required',
+            'residenceAddress'=> 'required',
+            'vehicleManufacturer'=> 'required',
+            'vehicleModel'=> 'required',
+            'year' => 'required',
+            'chassisNumber'=> 'required|unique:vehicles',
+            'allowedWeight'=> 'required',
+            'weight'=> 'required',
+            'trafficLicenseExpirationDate'=> 'required',
+            'cylinderCapacity'=> 'required',
+            'horsepower'=> 'required',
+            'fuleType'=> 'required',
+            'seatingCapacity'=> 'nullable',
+            'standingCapacity'=> 'nullable',
+            'currentMileage'=> 'required|numeric'
+        ]);
+        }
+        
+        $vehicle->update($validate);
+
+        return redirect(route('vehicles.show', $vehicle))->with('crudMessage', 'Vozilo uspešno izmenjeno.');
     }
 
     /**
