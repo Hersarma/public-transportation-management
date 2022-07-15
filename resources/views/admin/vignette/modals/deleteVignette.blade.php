@@ -45,9 +45,9 @@
             </svg>
           </div>
           <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-            <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">Obrišite Vozilo</h3>
+            <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">Obrišite Vinjetu</h3>
             <div class="mt-2">
-              <p class="text-sm text-gray-500">Da li sigurno želite da obrišete vozilo registarskih oznaka</p>
+              <p class="text-sm text-gray-500">Da li sigurno želite da obrišete vinjetu za vozilo registarskih oznaka</p>
               <p class="deleteThisModelSet text-center py-4"></p>
             </div>
           </div>
@@ -61,4 +61,6 @@
   </div>
   </form>
 </div>
+
+
 

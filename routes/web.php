@@ -34,7 +34,7 @@ Route::middleware('auth', 'role:admin')->group(function () {
     /*Vehicles*/
     Route::resource('vehicles', VehicleController::class);
     /*Vignette*/
-    Route::resource('vignette', VignetteController::class);
+    Route::resource('vignettes', VignetteController::class);
 
     /*Drivers*/
     Route::resource('drivers', DriverController::class);

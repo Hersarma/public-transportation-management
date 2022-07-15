@@ -41,4 +41,9 @@ protected static function newFactory()
         'currentMileage'
     ];
 
+    public function vignette() {
+        
+        return $this->hasMany(Vignette::class);
+    }
+
 }

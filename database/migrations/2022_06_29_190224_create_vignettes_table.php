@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('vehicle_id');
             $table->date('purchase_date');
-            $table->integer('numeberOfDays');
+            $table->string('country');
             $table->decimal('price', 10,2);
             $table->date('expirationDate');
             $table->timestamps();

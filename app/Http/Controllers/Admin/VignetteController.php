@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Vehicle;
 use App\Models\Admin\Vignette;
 use Illuminate\Http\Request;
 
@@ -13,8 +14,10 @@ class VignetteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('admin.vignette.index');
+    {   
+        $vehicles = Vehicle::orderBy('vehicleManufacturer', 'asc')->simplePaginate('50');
+        $vignettes = Vignette::with('vehicle')->orderBy('expirationDate', 'asc')->simplePaginate(10);
+        return view('admin.vignette.index', compact('vignettes', 'vehicles'));
     }
 
     /**
@@ -35,7 +38,18 @@ class VignetteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request);
+        $validate = request()->validateWithBag('create_vignette', [
+            'vehicle_id' => 'required',
+            'country' => 'required',
+            'price' => 'required|numeric',
+            'purchase_date' => 'required',
+            'expirationDate' => 'required'
+        ]);
+
+        Vignette::create($validate);
+
+        return redirect(route('vignettes.index'))->with('crudMessage', 'Vinjeta uspešno kreirana.');
     }
 
     /**

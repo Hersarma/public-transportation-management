@@ -61,15 +61,4 @@
   </div>
   </form>
 </div>
-<script>
-  $(document).ready(function () {
-    $(document).on('click', '.get_route', function () {
-        let deleteThisModelGet = $(this).children('em').text();
-        let href = $(this).children('span').text();
-        $('.deleteThisModelSet').text("'" + deleteThisModelGet + "'");
-        $('.set_route').attr('action', href);
-    });
-  });
-</script>
-
 

@@ -63,4 +63,24 @@ $(document).ready(function() {
     });
 
 
+
+
+
+    /*Delete Models*/
+    $(document).on('click', '.get_route', function() {
+        let deleteThisModelGet = $(this).children('em').text();
+        let href = $(this).children('span').text();
+        $('.deleteThisModelSet').text("'" + deleteThisModelGet + "'");
+        $('.set_route').attr('action', href);
+    });
+
+    /*Get and Set Vehicle id*/
+
+    $(document).on('click', '.vehicle', function() {
+        let vehicleId = $(this).find('input').attr('value');
+        let vehicleName = $.trim($(this, '.vehicle_name').text());
+        //console.log(vehicleName);
+        $('.set_vehicle_id').attr('value', vehicleId);
+        $('.setVehicleName').attr('value', vehicleName);
+    });
 });
