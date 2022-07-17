@@ -1,6 +1,6 @@
 <div class="relative flex flex-col mt-16">
  <div class="fixed top-0 left-0 right-0 lg:ml-64 z-10 flex-shrink-0 flex h-16 bg-gray-700">
-      <button @click="open =! open" type="button" class="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden">
+      <button @click="open =! open" type="button" class="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 lg:hidden">
         <span class="sr-only">Open sidebar</span>
         <!-- Heroicon name: outline/menu-alt-2 -->
         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">

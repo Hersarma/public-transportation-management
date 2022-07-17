@@ -1,5 +1,5 @@
 
-  <div x-cloak x-show="open" class="relative z-40 md:hidden" role="dialog" aria-modal="true">
+  <div x-cloak x-show="open" class="relative z-40 lg:hidden" role="dialog" aria-modal="true">
    
     <div x-show="open" x-transition:enter="transition-opacity ease-linear duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition-opacity ease-linear duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="fixed inset-0 bg-gray-600 bg-opacity-75"></div>
 
@@ -36,11 +36,14 @@
         </button>
         <!-- Expandable link section, show/hide based on state. -->
         <div x-cloak x-show="open" class="space-y-1">
-          <a href="#" class="group w-full flex items-center pl-11 pr-2 py-2 text-sm font-medium rounded-md text-white hover:text-white hover:bg-gray-800"> Registracije </a>
-
-          <a href="#" class="group w-full flex items-center pl-11 pr-2 py-2 text-sm font-medium rounded-md text-white hover:text-white hover:bg-gray-800"> Vinjete </a>
-
-          <a href="#" class="group w-full flex items-center pl-11 pr-2 py-2 text-sm font-medium rounded-md text-white hover:text-white hover:bg-gray-800"> Održavanje </a>
+          < <a href="{{ route('vehicles.index') }}" class="{{ Request::is('vehicles') ? 'bg-gray-800' : '' }} group w-full flex items-center pl-11 pr-2 py-2 text-sm font-medium rounded-md text-white hover:text-white hover:bg-gray-800">
+           Vozila </a>
+          <a href="#" class="{{ Request::is('vehicles/registration') ? 'bg-gray-800' : '' }} group w-full flex items-center pl-11 pr-2 py-2 text-sm font-medium rounded-md text-white hover:text-white hover:bg-gray-800">
+           Registracije </a>
+          <a href="{{ route('vignettes.index')}}" class="{{ Request::is('vignette') ? 'bg-gray-800' : '' }} group w-full flex items-center pl-11 pr-2 py-2 text-sm font-medium rounded-md text-white hover:text-white hover:bg-gray-800"> 
+          Vinjete </a>
+          <a href="#" class="group w-full flex items-center pl-11 pr-2 py-2 text-sm font-medium rounded-md text-white hover:text-white hover:bg-gray-800"> 
+          Održavanje </a>
 
         </div>
 

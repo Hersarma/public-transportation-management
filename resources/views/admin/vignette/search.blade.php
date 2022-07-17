@@ -6,7 +6,7 @@
           <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">Registarcija</th>
           <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">Država</th>
           <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell">Datum Kupovine</th>
-          <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Datum isteka</th>
+          <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Važi do</th>
           <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
             <span class="sr-only">Prikaži</span>
           </th>
@@ -38,7 +38,8 @@
           <td class="py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
               <button @click="open = true" class="get_route text-red-600 hover:text-red-900">Izbriši
               <span class="hidden">{{route('vignettes.destroy', $vignette)}}</span>
-              <em class="hidden">{{ $vignette->vehicle->registrationPlate }}</em>
+              <em class="hidden">
+                {{ $vignette->vehicle->registrationPlate }}</em>
               </button>
               
           </td>
@@ -46,7 +47,7 @@
       @endforeach
     @if($vignettes->isEmpty())
     <tr>
-    <td colspan="6" class="text-center py-8">Nema rezultata</td>
+    <td colspan="7" class="text-center py-8">Nema rezultata</td>
     </tr>
     @endif
       </tbody>
