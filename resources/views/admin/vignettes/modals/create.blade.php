@@ -58,16 +58,10 @@
                         <div class="relative border border-gray-300 rounded-md px-4 py-3 shadow-sm focus-within:ring-1 focus-within:ring-indigo-600 focus-within:border-indigo-600">
                           <label for="search_vehicle" class="absolute -top-1 left-2 -mt-px inline-block px-1 bg-white text-xs font-medium text-gray-900">Ime-Registracija</label>
                           <input type="search" name="search_vehicle" id="search_vehicle" class="search_vehicle block w-full border-0 p-0 text-gray-900 placeholder-gray-500 focus:ring-0 sm:text-sm" placeholder="Pretraga Vozila">
+                          <p id="url_name" class="hidden">{{ Request::path() }}</p>
                         </div>
-                        <div class="mt-5 px-2">
-                          @foreach($vehicles as $vehicle)
-                          <div @click="open =! open" class="vehicle py-8 mt-5 border-t border-gray-200 cursor-pointer rounded-lg ring-1 ring-slate-900/5 shadow-lg  hover:bg-sky-500 hover:ring-sky-500 hover:text-white">
-                            <input type="text" hidden value="{{ $vehicle->id }}" class="hidden">
-                            <p class="vehicle_name px-4">{{ $vehicle->vehicleManufacturer }} {{ $vehicle->vehicleModel }} {{ $vehicle->registrationPlate }}</p>
-                             
-                          </div>
-                          
-                          @endforeach
+                        <div class="searchVehicle mt-5 px-2">
+                         @include('admin.vignettes.searchVehicle')
                         </div>
                       </div>
                       

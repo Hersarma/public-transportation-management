@@ -17,7 +17,7 @@
       </span></button>
       
       
-      @include('admin.vignette.modals.edit')
+      @include('admin.vignettes.modals.edit')
     </div>
   </div>
   <div class="border-t border-gray-200 px-4 py-5 sm:p-0">

@@ -16,8 +16,8 @@ class VignetteController extends Controller
     public function index()
     {   
         $vehicles = Vehicle::orderBy('vehicleManufacturer', 'asc')->simplePaginate(50);
-        $vignettes = Vignette::with('vehicle')->orderBy('expirationDate', 'asc')->simplePaginate(10);
-        return view('admin.vignette.index', compact('vignettes', 'vehicles'));
+        $vignettes = Vignette::with('vehicle')->orderBy('expirationDate', 'desc')->simplePaginate(10);
+        return view('admin.vignettes.index', compact('vignettes', 'vehicles'));
     }
 
     /**
@@ -62,7 +62,7 @@ class VignetteController extends Controller
     {
         $vehicles = Vehicle::orderBy('vehicleManufacturer', 'asc')->simplePaginate('50');
         $vehicle = $vignette->vehicle()->first();
-        return view('admin.vignette.show', compact('vignette', 'vehicle', 'vehicles'));
+        return view('admin.vignettes.show', compact('vignette', 'vehicle', 'vehicles'));
     }
 
     /**

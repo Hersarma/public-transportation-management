@@ -45,6 +45,7 @@ Route::middleware('auth', 'role:admin')->group(function () {
     /*Search*/
     Route::get('searchVehicle', [SearchController::class, 'searchVehicle']);
     Route::get('searchDriver', [SearchController::class, 'searchDriver']);
+    Route::get('searchVignette', [SearchController::class, 'searchVignette']);
    
 
 });

@@ -40,7 +40,7 @@
   </div>
   <div x-data="{open: false}" class="relative">
     <div  class="searchDriver -mx-4 mt-8 overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:-mx-6 md:mx-0 md:rounded-lg">
-    @include('admin.drivers.search')
+    @include('admin.drivers.searchDriver')
   </div>
     @include('admin.drivers.modals.deleteDriver')
   </div>

@@ -1,33 +1,30 @@
 $(document).ready(function() {
     /*Search Vehicle*/
-    function fetch_vehicle(query, page) {
+    function fetch_vehicle(query, page, url_name) {
         $.ajax({
-            url: "/searchVehicle?query=" + query + "&page=" + page,
+            url: "/searchVehicle?query=" + query + "&page=" + page + "&url_name=" + url_name,
             success: function(data) {
-                if (!data) {
-                    $('.searchVehicle').html('<p class="text-white py-4">Nema rezultata</p>');
 
-                } else {
-                    $('.searchVehicle').html(data);
+                $('.searchVehicle').html(data);
 
-                }
+
             }
         })
     }
     $(document).on('keyup', '.search_vehicle', function() {
         let query = $(this, '.search_vehicle').val();
         let page = $('#hidden_page').val(1);
-
-        fetch_vehicle(query, page);
+        let url_name = $('#url_name').text();
+        fetch_vehicle(query, page, url_name);
     });
     $(document).on('click', '.paginationvehicles, .paginationsearchVehicle', function(event) {
         event.preventDefault();
         let page = $(this).attr('href').split('page=')[1];
         $('#hidden_page').val(page);
-
+        let url_name = $('#url_name').text();
         let query = $('.search_vehicle').val();
 
-        fetch_vehicle(query, page);
+        fetch_vehicle(query, page, url_name);
     });
 
 
@@ -36,13 +33,10 @@ $(document).ready(function() {
         $.ajax({
             url: "/searchDriver?page=" + page + "&query=" + query,
             success: function(data) {
-                if (!data) {
-                    $('.searchDriver').html('<p class="text-white py-4">Nema rezultata</p>');
 
-                } else {
-                    $('.searchDriver').html(data);
+                $('.searchDriver').html(data);
 
-                }
+
             }
         })
     }
@@ -62,6 +56,32 @@ $(document).ready(function() {
         fetch_driver(page, query);
     });
 
+    /*Search Vignette*/
+
+    function fetch_vignette(page, query) {
+        $.ajax({
+            url: "/searchVignette?page=" + page + "&query=" + query,
+            success: function(data) {
+                $('.searchVignette').html(data);
+            }
+        })
+    }
+    $(document).on('keyup', '.search_vignette', function() {
+        let query = $(this, '.search_vignette').val();
+        let page = $('#hidden_page').val(1);
+
+        fetch_vignette(page, query);
+    });
+
+    $(document).on('click', '.paginationvignettes, .paginationsearchVignette', function(event) {
+        event.preventDefault();
+        let page = $(this).attr('href').split('page=')[1];
+        $('#hidden_page').val(page);
+
+        let query = $('.search_vignette').val();
+
+        fetch_vignette(page, query);
+    });
 
 
 

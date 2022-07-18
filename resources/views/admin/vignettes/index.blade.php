@@ -31,15 +31,15 @@
       </span></button>
       
       
-      @include('admin.vignette.modals.create')
+      @include('admin.vignettes.modals.create')
     </div>
   </div>
   <div x-data="{open: false}">
-    <div class="searchVehicle -mx-4 mt-8 overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:-mx-6 md:mx-0 md:rounded-lg">
-      @include('admin.vignette.search')
+    <div class="searchVignette -mx-4 mt-8 overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:-mx-6 md:mx-0 md:rounded-lg">
+      @include('admin.vignettes.searchVignette')
       
     </div>
-    @include('admin.vignette.modals.deleteVignette')
+    @include('admin.vignettes.modals.deleteVignette')
   </div>
   
 </div>
