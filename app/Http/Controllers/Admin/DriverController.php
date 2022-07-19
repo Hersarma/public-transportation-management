@@ -50,19 +50,32 @@ class DriverController extends Controller
         'driverLicenseExpirationDate' => 'required',
         'driverLicenseIssuedBy' => 'required',
         'driverLicenseId' => 'required|unique:drivers',
-        'residence' => 'required'
+        'residence' => 'required',
+        'category_AM' => 'nullable',
+        'category_A1' => 'nullable',
+        'category_A2' => 'nullable',
+        'category_A' => 'nullable',
+        'category_B1' => 'nullable',
+        'category_B' => 'nullable',
+        'category_BE' => 'nullable',
+        'category_C1' => 'nullable',
+        'category_C1E' => 'nullable',
+        'category_C' => 'nullable',
+        'category_CE' => 'nullable',
+        'category_D1' => 'nullable',
+        'category_D1E' => 'nullable',
+        'category_D' => 'nullable',
+        'category_DE' => 'nullable',
+        'category_F' => 'nullable',
+        'category_M' => 'nullable'
+        
         ]);
 
-        $validateCategories = request()->validateWithBag('create_driver_categories', [
-            'items' => 'required'
-            
-        ]);
+        
 
         $driver = Driver::create($validate);
 
-        foreach($request->items as $category) {
-            $driver->driverCategories()->create($category);
-        }
+       
 
         return redirect(route('drivers.index'))->with('crudMessage', 'Vozač uspešno kreiran.');
     }
@@ -75,7 +88,9 @@ class DriverController extends Controller
      */
     public function show(Driver $driver)
     {
-        //
+
+
+        return view('admin.drivers.show', compact('driver'));
     }
 
     /**

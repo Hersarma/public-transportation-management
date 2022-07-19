@@ -34,11 +34,25 @@ class Driver extends Model
         'driverLicenseExpirationDate',
         'driverLicenseIssuedBy',
         'driverLicenseId',
-        'residence'
+        'residence',
+        'category_AM',
+        'category_A1',
+        'category_A2',
+        'category_A',
+        'category_B1',
+        'category_B',
+        'category_BE',
+        'category_C1',
+        'category_C1E',
+        'category_C',
+        'category_CE',
+        'category_D1',
+        'category_D1E',
+        'category_D',
+        'category_DE',
+        'category_F',
+        'category_M'
     ];
 
-    public function driverCategories() {
-
-        return $this->hasMany(DriverCategories::class);
-    }
+   
 }

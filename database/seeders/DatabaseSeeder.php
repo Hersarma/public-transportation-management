@@ -38,14 +38,7 @@ class DatabaseSeeder extends Seeder
                 'price' => 200
             ]);
         });
-        Driver::factory(35)->create()->each(function($driver){
-            DriverCategories::create([
-                'driver_id' => $driver->id,
-                'categories' => 'B'
-            ]);
-          
-        });
-
+        Driver::factory(35)->create();
         
     }
 }

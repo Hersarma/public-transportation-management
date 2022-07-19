@@ -28,7 +28,11 @@ class DriverFactory extends Factory
         'driverLicenseExpirationDate' => $this->faker->date('d-M-Y'),
         'driverLicenseIssuedBy' => 'PU U NOVOM SADU',
         'driverLicenseId' => $this->faker->unique()->randomNumber(9, true),
-        'residence' => $this->faker->city() 
+        'residence' => $this->faker->city(),
+        'category_B' => '1',
+        'category_D' => '1',
+        'category_C' => '1',
+        'category_F' => '1'
         ];
     }
 }

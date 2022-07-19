@@ -196,11 +196,6 @@
                         
                         <fieldset>
                           <legend id="category_errors" class="text-lg font-medium text-gray-900">Kategorije</legend>
-                          @if($errors->create_driver_categories->any())
-                          <p class="text-red-500 text-sm italic mt-4">
-                            Morate izabrati minimum jednu kategoriju.
-                          </p>
-                          @endif
                           
                           <div class="mt-4 border-t border-b border-gray-200 divide-y divide-gray-200">
                             <div class="relative flex items-start py-4">
@@ -208,7 +203,7 @@
                                 <label for="AM" class="font-medium text-gray-700 select-none">AM</label>
                               </div>
                               <div class="ml-3 flex items-center h-5">
-                                <input name="items[][categories]" type="checkbox" value="AM" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                <input name="category_AM" type="checkbox" value="1" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
                               </div>
                             </div>
                             <div class="relative flex items-start py-4">
@@ -216,7 +211,7 @@
                                 <label for="A1" class="font-medium text-gray-700 select-none">A1</label>
                               </div>
                               <div class="ml-3 flex items-center h-5">
-                                <input name="items[][categories]" type="checkbox" value="A1" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                <input name="category_A1" type="checkbox" value="1" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
                               </div>
                             </div>
                             <div class="relative flex items-start py-4">
@@ -224,7 +219,7 @@
                                 <label for="A2" class="font-medium text-gray-700 select-none">A2</label>
                               </div>
                               <div class="ml-3 flex items-center h-5">
-                                <input name="items[][categories]" type="checkbox" value="A2" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                <input name="category_A2" type="checkbox" value="1" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
                               </div>
                             </div>
                             <div class="relative flex items-start py-4">
@@ -232,7 +227,7 @@
                                 <label for="A" class="font-medium text-gray-700 select-none">A</label>
                               </div>
                               <div class="ml-3 flex items-center h-5">
-                                <input name="items[][categories]" type="checkbox" value="A" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                <input name="category_A" type="checkbox" value="1" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
                               </div>
                             </div>
                             <div class="relative flex items-start py-4">
@@ -240,7 +235,7 @@
                                 <label for="B1" class="font-medium text-gray-700 select-none">B1</label>
                               </div>
                               <div class="ml-3 flex items-center h-5">
-                                <input name="items[][categories]" type="checkbox" value="B1" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                <input name="category_B1" type="checkbox" value="1" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
                               </div>
                             </div>
                             <div class="relative flex items-start py-4">
@@ -248,7 +243,7 @@
                                 <label for="B" class="font-medium text-gray-700 select-none">B</label>
                               </div>
                               <div class="ml-3 flex items-center h-5">
-                                <input name="items[][categories]" type="checkbox" value="B" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                <input name="category_B" type="checkbox" value="1" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
                               </div>
                             </div>
                             <div class="relative flex items-start py-4">
@@ -256,7 +251,7 @@
                                 <label for="BE" class="font-medium text-gray-700 select-none">BE</label>
                               </div>
                               <div class="ml-3 flex items-center h-5">
-                                <input name="items[][categories]" type="checkbox" value="BE" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                <input name="category_BE" type="checkbox" value="1" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
                               </div>
                             </div>
                             <div class="relative flex items-start py-4">
@@ -264,7 +259,7 @@
                                 <label for="C1" class="font-medium text-gray-700 select-none">C1</label>
                               </div>
                               <div class="ml-3 flex items-center h-5">
-                                <input name="items[][categories]" type="checkbox" value="C1" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                <input name="category_C1" type="checkbox" value="1" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
                               </div>
                             </div>
                             <div class="relative flex items-start py-4">
@@ -272,7 +267,7 @@
                                 <label for="C1E" class="font-medium text-gray-700 select-none">C1E</label>
                               </div>
                               <div class="ml-3 flex items-center h-5">
-                                <input name="items[][categories]" type="checkbox" value="C1E" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                <input name="category_C1E" type="checkbox" value="1" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
                               </div>
                             </div>
                             <div class="relative flex items-start py-4">
@@ -280,7 +275,7 @@
                                 <label for="C" class="font-medium text-gray-700 select-none">C</label>
                               </div>
                               <div class="ml-3 flex items-center h-5">
-                                <input name="items[][categories]" type="checkbox" value="C" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                <input name="category_C" type="checkbox" value="1" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
                               </div>
                             </div>
                             <div class="relative flex items-start py-4">
@@ -288,7 +283,7 @@
                                 <label for="CE" class="font-medium text-gray-700 select-none">CE</label>
                               </div>
                               <div class="ml-3 flex items-center h-5">
-                                <input name="items[][categories]" type="checkbox" value="CE" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                <input name="category_CE" type="checkbox" value="1" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
                               </div>
                             </div>
                             <div class="relative flex items-start py-4">
@@ -296,7 +291,7 @@
                                 <label for="D1" class="font-medium text-gray-700 select-none">D1</label>
                               </div>
                               <div class="ml-3 flex items-center h-5">
-                                <input name="items[][categories]" type="checkbox" value="D1" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                <input name="category_D1" type="checkbox" value="1" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
                               </div>
                             </div>
                             <div class="relative flex items-start py-4">
@@ -304,7 +299,7 @@
                                 <label for="D1E" class="font-medium text-gray-700 select-none">D1E</label>
                               </div>
                               <div class="ml-3 flex items-center h-5">
-                                <input name="items[][categories]" type="checkbox" value="D1E" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                <input name="category_D1E" type="checkbox" value="1" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
                               </div>
                             </div>
                             <div class="relative flex items-start py-4">
@@ -312,7 +307,7 @@
                                 <label for="D" class="font-medium text-gray-700 select-none">D</label>
                               </div>
                               <div class="ml-3 flex items-center h-5">
-                                <input name="items[][categories]" type="checkbox" value="D" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                <input name="category_D" type="checkbox" value="1" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
                               </div>
                             </div>
                             <div class="relative flex items-start py-4">
@@ -320,7 +315,7 @@
                                 <label for="DE" class="font-medium text-gray-700 select-none">DE</label>
                               </div>
                               <div class="ml-3 flex items-center h-5">
-                                <input name="items[][categories]" type="checkbox" value="DE" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                <input name="category_DE" type="checkbox" value="1" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
                               </div>
                             </div>
                             <div class="relative flex items-start py-4">
@@ -328,7 +323,7 @@
                                 <label for="F" class="font-medium text-gray-700 select-none">F</label>
                               </div>
                               <div class="ml-3 flex items-center h-5">
-                                <input name="items[][categories]" type="checkbox" value="F" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                <input name="category_F" type="checkbox" value="1" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
                               </div>
                             </div>
                             <div class="relative flex items-start py-4">
@@ -336,7 +331,7 @@
                                 <label for="M" class="font-medium text-gray-700 select-none">M</label>
                               </div>
                               <div class="ml-3 flex items-center h-5">
-                                <input name="items[][categories]" type="checkbox" value="E" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                <input name="category_M" type="checkbox" value="1" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
                               </div>
                             </div>
                           </div>

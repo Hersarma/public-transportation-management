@@ -30,11 +30,11 @@ class SearchController extends Controller
     {
         $query = $request->get('query');
         $query = str_replace(" ", "%", $query);
-        $drivers = Driver::with('driverCategories')->whereHas('driverCategories',function($q) use($query){
-        $q->where('fname', 'like', "%{$query}%")
-        ->orWhere('driverLicenseId', 'like', "%{$query}%")
-        ->orWhere('lname', 'like', "%{$query}%");
-        })->orderBy('fname', 'asc')->simplePaginate(10);
+        $drivers = Driver::
+        where('fname', 'like', '%' . $query . '%')
+        ->orWhere('lname', 'like', '%' . $query . '%')
+        ->orWhere('driverLicenseId', 'like', '%' . $query . '%')
+        ->orderBy('fname', 'asc')->simplePaginate(10);
         
         return view('admin.drivers.searchDriver', compact('drivers'))->render();
     }
