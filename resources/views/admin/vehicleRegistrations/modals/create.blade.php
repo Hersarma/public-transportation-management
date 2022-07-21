@@ -1,0 +1,151 @@
+<!-- This example requires Tailwind CSS v2.0+ -->
+<div x-cloak x-show="open" class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+  <!--
+  Background backdrop, show/hide based on modal state.
+  Entering: "ease-out duration-300"
+  From: "opacity-0"
+  To: "opacity-100"
+  Leaving: "ease-in duration-200"
+  From: "opacity-100"
+  To: "opacity-0"
+  -->
+  <div x-show="open" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+  class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+  <div class="fixed z-10 inset-0 overflow-y-auto">
+    <div class="flex items-end sm:items-center justify-center min-h-full p-4 text-center sm:p-0">
+      <div x-show="open" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100" x-transition:leave="ease-in duration-200" x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100" x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+        class="relative bg-white rounded-lg pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 max-w-7xl w-full">
+        <div class="lg:px-8">
+          <div class="absolute top-8 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pt-4 pr-4">
+            <div class="bg-gray-700 rounded-md px-4 py-3">
+              <!-- Heroicon name: outline/users -->
+              <i class="fa-solid fa-registered fa-lg text-yellow-400"></i>
+            </div>
+          </div>
+          <div class="absolute top-0 right-0 pt-4 pr-4">
+            <button @click="open = false" type="button" class="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            <span class="sr-only">Close</span>
+            <!-- Heroicon name: outline/x -->
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+            </button>
+          </div>
+          <form method="POST" action="{{ route('vehicleRegistrations.store') }}" enctype="multipart/form-data" class="space-y-8 divide-y divide-gray-200 bg-white lg:px-8 px-2 py-4 rounded-lg">
+            @csrf
+            <input type="text" name="vehicle_id" value="" class="set_vehicle_id hidden">
+            <div class="space-y-8 divide-y divide-gray-200 sm:space-y-5">
+              <div class="pt-8 space-y-6 sm:pt-10 sm:space-y-5">
+                <div>
+                  <h3 class="text-lg leading-6 font-medium text-gray-900">Nova Registracija</h3>
+                </div>
+                <div class="space-y-6 sm:space-y-5">
+                  <div x-data="{open:false}" class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                    <label for="vehicle_id" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"> Vozilo </label>
+                    <div class="relative mt-1 sm:mt-0 sm:col-span-2">
+                      <div class="flex items-center">
+                        <input @click="open =! open" type="text" readonly placeholder="Izaberi Vozilo" class="setVehicleName cursor-pointer max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
+                        <div class="-ml-10">
+                          <svg class="text-gray-700  h-5 w-5 transform group-hover:text-gray-400 transition-colors ease-in-out duration-150" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                          </svg>
+                        </div>
+                      </div>
+                      <p class="text-red-500 text-sm italic mt-4">
+                        {{ $errors->create_vehicle_registration->first('vehicle_id') }}
+                      </p>
+                      <div x-cloak x-show="open" @click.away="open = false" class="absolute overflow-auto z-10 h-96 mt-6 w-full lg:w-2/3 bg-white rounded-md shadow">
+                        <div class="relative border border-gray-300 rounded-md px-4 py-3 shadow-sm focus-within:ring-1 focus-within:ring-indigo-600 focus-within:border-indigo-600">
+                          <label for="search_vehicle" class="absolute -top-1 left-2 -mt-px inline-block px-1 bg-white text-xs font-medium text-gray-900">Ime-Registracija</label>
+                          <input type="search" name="search_vehicle" id="search_vehicle" class="search_vehicle block w-full border-0 p-0 text-gray-900 placeholder-gray-500 focus:ring-0 sm:text-sm" placeholder="Pretraga Vozila">
+                          <p id="url_name" class="hidden">{{ Request::path() }}</p>
+                        </div>
+                        <div class="searchVehicle mt-5 px-2">
+                         @include('admin.vehicleRegistrations.searchVehicle')
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+                  <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                    <label for="purchase_date" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"> Datum kupovine </label>
+                    <div class="mt-1 sm:mt-0 sm:col-span-2">
+                       <div class="flex items-center">
+                              <input readonly type="text" name="purchase_date" id="purchase_date" autocomplete="purchase_date" placeholder="Izaberi datum" class="datepicker max-w-lg block py-4 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
+                              <div class="px-3 py-2 -ml-10">
+                                <svg
+                                  class="h-6 w-6 text-gray-400"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke="currentColor"
+                                  >
+                                  <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                                    />
+                                  </svg>
+                                </div>
+                          </div>
+                      <p class="text-red-500 text-sm italic mt-4">
+                        {{ $errors->create_vehicle_registration->first('purchase_date') }}
+                      </p>
+                    </div>
+                        </div>
+                        <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                          <label for="expirationDate" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"> Važi do </label>
+                          <div class="mt-1 sm:mt-0 sm:col-span-2">
+                            <div class="flex items-center">
+                              <input readonly type="text" name="expirationDate" id="expirationDate" autocomplete="expirationDate" placeholder="Izaberi datum" class="datepicker max-w-lg block py-4 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
+                              <div class="px-3 py-2 -ml-10">
+                                <svg
+                                  class="h-6 w-6 text-gray-400"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke="currentColor"
+                                  >
+                                  <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                                    />
+                                  </svg>
+                                </div>
+                            </div>
+                            
+                            
+                            <p class="text-red-500 text-sm italic mt-4">
+                              {{ $errors->create_vehicle_registration->first('expirationDate') }}
+                            </p>
+                          </div>
+                              </div>
+                              <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                                <label for="price" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"> Cena </label>
+                                <div class="mt-1 sm:mt-0 sm:col-span-2">
+                                  <input type="text" name="price" id="price" autocomplete="price" value="{{ old('price') }}" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
+                                  <p class="text-red-500 text-sm italic mt-4">
+                                    {{ $errors->create_vehicle_registration->first('price') }}
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="pt-5">
+                          <div class="flex justify-end">
+                            
+                            <button @click="open = false" type="button" class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Otkaži</button>
+                            
+                            
+                            <button type="submit" class="ml-3 inline-flex items-center justify-center rounded-md border border-transparent bg-gray-700 px-4 py-2 text-sm font-medium text-yellow-400 shadow-sm hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 sm:w-auto">Sačuvaj</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>

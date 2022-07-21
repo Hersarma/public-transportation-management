@@ -84,7 +84,33 @@ $(document).ready(function() {
     });
 
 
+    /*Search Clients*/
+    function fetch_client(page, query) {
+        $.ajax({
+            url: "/searchClient?page=" + page + "&query=" + query,
+            success: function(data) {
 
+                $('.searchClient').html(data);
+
+
+            }
+        })
+    }
+    $(document).on('keyup', '.search_client', function() {
+        let query = $(this, '.search_client').val();
+        let page = $('#hidden_page').val(1);
+
+        fetch_client(page, query);
+    });
+    $(document).on('click', '.paginationclients, .paginationsearchClient', function(event) {
+        event.preventDefault();
+        let page = $(this).attr('href').split('page=')[1];
+        $('#hidden_page').val(page);
+
+        let query = $('.search_client').val();
+
+        fetch_client(page, query);
+    });
 
     /*Delete Models*/
     $(document).on('click', '.get_route', function() {

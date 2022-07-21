@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Client;
 use App\Models\Admin\Driver;
 use App\Models\Admin\Vehicle;
 use App\Models\Admin\Vignette;
@@ -49,6 +50,18 @@ class SearchController extends Controller
         
         return view('admin.vignettes.searchVignette', compact('vignettes'))->render();
 
+    }
+
+    public function searchClient(Request $request) {
+
+        $query = $request->get('query');
+        $query = str_replace(" ", "%", $query);
+        $clients = Client::where('fname', 'like', '%' .$query. '%')
+        ->orWhere('lname', 'like', '%' . $query . '%')
+        ->orderBy('fname', 'asc')
+        ->simplePaginate(10);
+
+        return view('admin.clients.searchClient', compact('clients'))->render();
     }
 
 

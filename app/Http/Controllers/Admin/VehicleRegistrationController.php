@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Vehicle;
-use App\Models\Admin\Vignette;
+use App\Models\Admin\VehicleRegistration;
 use Illuminate\Http\Request;
 
-class VignetteController extends Controller
+class VehicleRegistrationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +15,10 @@ class VignetteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {
         $vehicles = Vehicle::orderBy('vehicleManufacturer', 'asc')->simplePaginate(50);
-        $vignettes = Vignette::with('vehicle')->orderBy('expirationDate', 'desc')->simplePaginate(10);
-        return view('admin.vignettes.index', compact('vignettes', 'vehicles'));
+        $vehicleRegistrations = VehicleRegistration::with('vehicle')->orderBy('expirationDate', 'desc')->simplePaginate(10);
+        return view('admin.vehicleRegistrations.index', compact('vehicleRegistrations', 'vehicles'));
     }
 
     /**
@@ -29,40 +30,39 @@ class VignetteController extends Controller
     public function store(Request $request)
     {
         //dd($request);
-        $validate = request()->validateWithBag('create_vignette', [
+        $validate = request()->validateWithBag('create_vehicle_registration', [
             'vehicle_id' => 'required',
-            'country' => 'required',
             'price' => 'required|numeric',
             'purchase_date' => 'required',
             'expirationDate' => 'required'
         ]);
 
-        Vignette::create($validate);
+        VehicleRegistration::create($validate);
 
-        return redirect(route('vignettes.index'))->with('crudMessage', 'Vinjeta uspešno kreirana.');
+        return redirect(route('vehicleRegistrations.index'))->with('crudMessage', 'Registracija uspešno kreirana.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Admin\Vignette  $vignette
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Vignette $vignette)
+    public function show(vehicleRegistration $vehicleRegistration)
     {
         $vehicles = Vehicle::orderBy('vehicleManufacturer', 'asc')->simplePaginate('50');
-        $vehicle = $vignette->vehicle()->first();
-        return view('admin.vignettes.show', compact('vignette', 'vehicle', 'vehicles'));
+        $vehicle = $vehicleRegistration->vehicle()->first();
+        return view('admin.vehicleRegistrations.show', compact('vehicleRegistration', 'vehicle', 'vehicles'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Admin\Vignette  $vignette
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Vignette $vignette)
+    public function update(Request $request, vehicleRegistration $vehicleRegistration)
     {
         //
     }
@@ -70,13 +70,13 @@ class VignetteController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Admin\Vignette  $vignette
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Vignette $vignette)
+    public function destroy(vehicleRegistration $vehicleRegistration)
     {
-        $vignette->delete();
+        $vehicleRegistration->delete();
 
-         return redirect(route('vignettes.index'))->with('crudMessage', 'Vinjeta uspešno izbrisana.');
+         return redirect(route('vehicleRegistration.index'))->with('crudMessage', 'Registracija uspešno izbrisana.');
     }
 }

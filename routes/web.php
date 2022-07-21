@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\DriverController;
 use App\Http\Controllers\Admin\SearchController;
 use App\Http\Controllers\Admin\VehicleController;
+use App\Http\Controllers\Admin\VehicleRegistrationController;
 use App\Http\Controllers\Admin\VignetteController;
 use App\Http\Controllers\Drivers\DriversHomeController;
 use App\Http\Controllers\GpsController;
@@ -34,6 +35,10 @@ Route::middleware('auth', 'role:admin')->group(function () {
 
     /*Vehicles*/
     Route::resource('vehicles', VehicleController::class);
+
+    /*Vehicle Registration*/
+    Route::resource('vehicleRegistrations', VehicleRegistrationController::class);
+
     /*Vignette*/
     Route::resource('vignettes', VignetteController::class);
 
@@ -50,6 +55,7 @@ Route::middleware('auth', 'role:admin')->group(function () {
     Route::get('searchVehicle', [SearchController::class, 'searchVehicle']);
     Route::get('searchDriver', [SearchController::class, 'searchDriver']);
     Route::get('searchVignette', [SearchController::class, 'searchVignette']);
+    Route::get('searchClient', [SearchController::class, 'searchClient']);
    
 
 });

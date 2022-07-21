@@ -46,4 +46,9 @@ protected static function newFactory()
         return $this->hasMany(Vignette::class);
     }
 
+    public function vehicleRegistration() {
+        
+        return $this->hasMany(VehicleRegistration::class);
+    }
+
 }
