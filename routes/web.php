@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminHomeController;
+use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\DriverController;
 use App\Http\Controllers\Admin\SearchController;
 use App\Http\Controllers\Admin\VehicleController;
@@ -38,6 +39,9 @@ Route::middleware('auth', 'role:admin')->group(function () {
 
     /*Drivers*/
     Route::resource('drivers', DriverController::class);
+
+    /*Clients*/
+    Route::resource('clients', ClientController::class);
 
     /*GPS*/
     Route::get('/gpsAdmin', [GpsController::class, 'indexAdmin'])->name('gpsAdmin');

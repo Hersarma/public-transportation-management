@@ -2,13 +2,14 @@
 
 namespace Database\Seeders;
 
+use App\Models\Admin\Client;
 use App\Models\Admin\Driver;
 use App\Models\Admin\DriverCategories;
 use App\Models\Admin\Vehicle;
 use App\Models\Admin\Vignette;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -39,6 +40,7 @@ class DatabaseSeeder extends Seeder
             ]);
         });
         Driver::factory(35)->create();
+        Client::factory(50)->create();
         
     }
 }

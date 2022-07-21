@@ -21,16 +21,6 @@ class VignetteController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -63,17 +53,6 @@ class VignetteController extends Controller
         $vehicles = Vehicle::orderBy('vehicleManufacturer', 'asc')->simplePaginate('50');
         $vehicle = $vignette->vehicle()->first();
         return view('admin.vignettes.show', compact('vignette', 'vehicle', 'vehicles'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Admin\Vignette  $vignette
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Vignette $vignette)
-    {
-        //
     }
 
     /**

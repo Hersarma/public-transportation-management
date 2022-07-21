@@ -352,10 +352,6 @@
                   </div>
                 </form>
               </div>
-              @push('scripts')
-              <script src="/js/datepicker.js"></script>
-              @endpush
-              
             </div>
           </div>
         </div>

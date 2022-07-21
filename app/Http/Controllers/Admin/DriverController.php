@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Driver;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 
 class DriverController extends Controller
 {
@@ -20,15 +19,6 @@ class DriverController extends Controller
         return view('admin.drivers.index', compact('drivers'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -93,17 +83,7 @@ class DriverController extends Controller
         return view('admin.drivers.show', compact('driver'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Admin\Driver  $driver
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Driver $driver)
-    {
-        //
-    }
-
+   
     /**
      * Update the specified resource in storage.
      *
@@ -194,6 +174,8 @@ class DriverController extends Controller
      */
     public function destroy(Driver $driver)
     {
-        //
+        $driver->delete();
+
+        return redirect(route('drivers.index'))->with('crudMessage', 'Vozač uspešno obrisan');
     }
 }

@@ -15,19 +15,11 @@ class ClientController extends Controller
      */
     public function index()
     {
-        //
+        $clients = Client::orderBy('fname', 'asc')->simplePaginate(10);
+        return view('admin.clients.index', compact('clients'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
+   
     /**
      * Store a newly created resource in storage.
      *
@@ -36,7 +28,19 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = request()->validateWithBag('create_client', [
+
+            'fname' => 'required',
+            'lname' => 'required',
+            'contact' => 'required',
+            'passportId' => 'nullable|unique:clients',
+            'personalId' => 'nullable|unique:clients',
+            'personalIdNumber' => 'nullable|unique:clients'
+        ]);
+
+        Client::create($validate);
+
+        return redirect(route('clients.index'))->with('crudMessage', 'Klijent uspešno kreiran');
     }
 
     /**
@@ -47,19 +51,10 @@ class ClientController extends Controller
      */
     public function show(Client $client)
     {
-        //
+        return view('admin.clients.show', compact('client'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Admin\Client  $client
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Client $client)
-    {
-        //
-    }
+   
 
     /**
      * Update the specified resource in storage.
@@ -70,7 +65,31 @@ class ClientController extends Controller
      */
     public function update(Request $request, Client $client)
     {
-        //
+        if ($request['personalId'] == $client->personalId || $request['personalIdNumber'] == $client->personalIdNumber || $request['passportId'] == $client->passporId) {
+            $validate = request()->validateWithBag('edit_client', [
+
+            'fname' => 'required',
+            'lname' => 'required',
+            'contact' => 'required',
+            'passportId' => 'nullable',
+            'personalId' => 'nullable',
+            'personalIdNumber' => 'nullable'
+        ]);
+        }else{
+            $validate = request()->validateWithBag('edit_client', [
+
+            'fname' => 'required',
+            'lname' => 'required',
+            'contact' => 'required',
+            'passportId' => 'nullable|unique:clients',
+            'personalId' => 'nullable|unique:clients',
+            'personalIdNumber' => 'nullable|unique:clients'
+        ]);
+        }
+
+        $client->update($validate);
+
+        return redirect(route('clients.show', $client))->with('crudMessage', 'Klijent uspešno izmenjen');
     }
 
     /**
@@ -81,6 +100,8 @@ class ClientController extends Controller
      */
     public function destroy(Client $client)
     {
-        //
+        $client->delete();
+
+        return redirect(route('clients.index'))->with('crudMessage', 'Klijent uspešno obrisan');
     }
 }
