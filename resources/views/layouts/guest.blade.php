@@ -15,6 +15,7 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="{{ asset('js/backButton.js?v=').time() }}" defer></script>
     </head>
     <body>
         <div class="font-sans bg-gray-600 antialiased">

@@ -30,10 +30,10 @@
         <script src="{{ asset('js/app.js?v=').time() }}" defer></script>
         <script src="{{ asset('js/serviceWorker.js') }}" defer></script>
         <script src="{{ asset('js/search.js?v=').time() }}" defer></script>
-         <script src="{{ asset('js/datepicker.js?v=').time() }}" defer></script>
+        <script src="{{ asset('js/datepicker.js?v=').time() }}" defer></script>
+        <script src="{{ asset('js/backButton.js?v=').time() }}" defer></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-       
         <style>
         [x-cloak] {
             display: none !important;
