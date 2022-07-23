@@ -55,10 +55,6 @@
         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{$vehicle->trafficLicenseIssuedDate->format('d-m-Y')}}</dd>
       </div>
       <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-        <dt class="text-sm font-medium text-gray-500">Datum isteka saobraćajne dozvole</dt>
-        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ $vehicle->trafficLicenseExpirationDate->format('d-m-Y') }}</dd>
-      </div>
-      <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
         <dt class="text-sm font-medium text-gray-500">Prezime-Ime vlasnika</dt>
         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ $vehicle->lname }} {{ $vehicle->fname }}</dd>
       </div>

@@ -27,7 +27,6 @@ return new class extends Migration
             $table->string('chassisNumber');
             $table->string('allowedWeight');
             $table->string('weight');
-            $table->date('trafficLicenseExpirationDate');
             $table->string('cylinderCapacity');
             $table->string('horsepower');
             $table->string('fuleType');

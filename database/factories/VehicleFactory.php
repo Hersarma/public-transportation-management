@@ -45,7 +45,6 @@ class VehicleFactory extends Factory
             'registrationPlate' => 'NS'.$this->faker->unique()->randomNumber(3).'-'.Str::random(2),
             'firstRegistrationDate' => $this->faker->date('d-M-Y'),
             'trafficLicenseIssuedDate' => $this->faker->date('d-M-Y'),
-            'trafficLicenseExpirationDate' => $this->faker->date('d-M-Y'),
             'fname' => $this->faker->name(),
             'lname' => $this->faker->name(),
             'residenceAddress' => $this->faker->address(),

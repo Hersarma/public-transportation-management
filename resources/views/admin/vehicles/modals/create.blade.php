@@ -200,32 +200,6 @@
                         </p>
                       </div>
                     </div>
-                    <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-                      <label for="trafficLicenseExpirationDate" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"> Datum isteka saobraćajne dozvole  <span class="font-bold ml-3">H</span></label>
-                      <div class="mt-1 sm:mt-0 sm:col-span-2">
-                        <div class="flex items-center">
-                          <input readonly type="text" name="trafficLicenseExpirationDate" id="trafficLicenseExpirationDate" autocomplete="trafficLicenseExpirationDate" placeholder="Izaberi datum" class="datepicker max-w-lg block py-4 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
-                          <div class="px-3 py-2 -ml-10">
-                            <svg
-                              class="h-6 w-6 text-gray-400"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                              >
-                              <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                                />
-                              </svg>
-                            </div>
-                          </div>
-                          <p class="text-red-500 text-sm italic mt-4">
-                            {{ $errors->create_vehicle->first('trafficLicenseExpirationDate') }}
-                          </p>
-                        </div>
-                      </div>
                       <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
                         <label for="cylinderCapacity" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"> Radna zapremina motora  <span class="font-bold ml-3">P.1</span></label>
                         <div class="mt-1 sm:mt-0 sm:col-span-2">

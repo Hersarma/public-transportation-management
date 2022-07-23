@@ -15,8 +15,7 @@ protected static function newFactory()
 }
     protected $dates = [
         'firstRegistrationDate',
-        'trafficLicenseIssuedDate',
-        'trafficLicenseExpirationDate'
+        'trafficLicenseIssuedDate'
     ];
 
     protected $fillable = [
@@ -32,7 +31,6 @@ protected static function newFactory()
         'chassisNumber',
         'allowedWeight',
         'weight',
-        'trafficLicenseExpirationDate',
         'cylinderCapacity',
         'horsepower',
         'fuleType',
