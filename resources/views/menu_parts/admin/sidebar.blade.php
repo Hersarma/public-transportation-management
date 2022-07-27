@@ -5,7 +5,7 @@
 
     <div class="fixed inset-0 flex z-40">
      
-      <div x-show="open" x-transition:enter="transition ease-in-out duration-300 transform" x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transition ease-in-out duration-300 transform" x-transition:leave-start="translate-x-0" x-transition:leave-end="-translate-x-full" class="relative flex-1 flex flex-col max-w-xs w-full pt-5 pb-4 bg-gradient-to-b from-gray-700 to-gray-600">
+      <div @click.away="open = false" x-show="open" x-transition:enter="transition ease-in-out duration-300 transform" x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transition ease-in-out duration-300 transform" x-transition:leave-start="translate-x-0" x-transition:leave-end="-translate-x-full" class="relative flex-1 flex flex-col max-w-xs w-full pt-5 pb-4 bg-gradient-to-b from-gray-700 to-gray-600">
        
         <div class="absolute top-0 right-0 -mr-12 pt-2">
           <button @click="open =! open" type="button" class="ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
@@ -117,10 +117,6 @@
             </div>
           </div>
         </nav>
-      </div>
-
-      <div class="flex-shrink-0 w-14" aria-hidden="true">
-     
       </div>
     </div>
   </div>

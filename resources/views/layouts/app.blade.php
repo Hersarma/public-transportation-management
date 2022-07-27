@@ -27,7 +27,6 @@
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
         <script src="{{ asset('js/serviceWorker.js') }}" defer></script>
-        <script src="{{ asset('js/backButton.js?v=').time() }}" defer></script>
         <style>
         [x-cloak] {
             display: none !important;
@@ -35,7 +34,7 @@
         </style>
     </head>
     <body class="font-sans antialiased h-full">
-        
+        <script src="{{ asset('js/backButton.js?v=').time() }}" defer></script>
          @include('messages.welcomeMessage')
         <div x-data="{ open: false }">
             @include('menu_parts.drivers.sidebar')

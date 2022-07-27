@@ -1,6 +1,10 @@
- history.pushState(null, null, null);
- window.addEventListener('popstate', (e) => {
-     e.preventDefault();
+if (/Android/i.test(navigator.userAgent) &&
+    /Chrome/i.test(navigator.userAgent) &&
+    window.matchMedia('(display-mode: standalone)').matches) {
 
-     history.pushState(null, null, null);
- });
+    history.pushState(null, null);
+    window.addEventListener('popstate', function() {
+
+        history.go(-(history.length - 2));
+    });
+}
