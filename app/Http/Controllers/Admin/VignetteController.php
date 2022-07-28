@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin\Vehicle;
 use App\Models\Admin\Vignette;
 use Illuminate\Http\Request;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class VignetteController extends Controller
 {
@@ -35,7 +36,7 @@ class VignetteController extends Controller
             'price' => 'required|numeric',
             'purchase_date' => 'required',
             'expiration_date' => 'required',
-            'receipt' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048'
+            'receipt' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:5120'
         ]);
 
         $vignette = new Vignette;
@@ -46,21 +47,17 @@ class VignetteController extends Controller
         $vignette->purchase_date = $request->purchase_date;
         $vignette->expiration_date = $request->expiration_date;
 
-        if(!empty($file))
+
+        if($request->hasFile('receipt'))
             {
                 
                 $fileName = uniqid().'_'.$file->getClientOriginalName();
-                $img = Image::make($fileName);
-                $img->save(storage_path('app/public/vignette/'),1);
-                //$fp = fopen(storage_path('app/public/vignette/').$fileName,"w");
-                //file_put_contents(storage_path('app/public/vignette/'. $fileName), file_get_contents($file));
-                //fclose($fp);
+                Image::make($file->getRealPath())->resize('500', '500')->save(storage_path('app/public/vignette/'.$fileName));
+                
                 $vignette->receipt = $fileName;
             }
         $vignette->save();
 
-
-        //Vignette::create($validate);
 
         return redirect(route('vignettes.index'))->with('crudMessage', 'Vinjeta uspešno kreirana.');
     }
