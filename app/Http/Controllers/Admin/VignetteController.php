@@ -16,7 +16,7 @@ class VignetteController extends Controller
     public function index()
     {   
         $vehicles = Vehicle::orderBy('vehicleManufacturer', 'asc')->simplePaginate(50);
-        $vignettes = Vignette::with('vehicle')->orderBy('expirationDate', 'desc')->simplePaginate(10);
+        $vignettes = Vignette::with('vehicle')->orderBy('expiration_date', 'desc')->simplePaginate(10);
         return view('admin.vignettes.index', compact('vignettes', 'vehicles'));
     }
 
@@ -34,10 +34,33 @@ class VignetteController extends Controller
             'country' => 'required',
             'price' => 'required|numeric',
             'purchase_date' => 'required',
-            'expirationDate' => 'required'
+            'expiration_date' => 'required',
+            'receipt' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048'
         ]);
 
-        Vignette::create($validate);
+        $vignette = new Vignette;
+        $file = $request->file('receipt');
+        $vignette->vehicle_id = $request->vehicle_id;
+        $vignette->country = $request->country;
+        $vignette->price = $request->price;
+        $vignette->purchase_date = $request->purchase_date;
+        $vignette->expiration_date = $request->expiration_date;
+
+        if(!empty($file))
+            {
+                
+                $fileName = uniqid().'_'.$file->getClientOriginalName();
+                $img = Image::make($fileName);
+                $img->save(storage_path('app/public/vignette/'),1);
+                //$fp = fopen(storage_path('app/public/vignette/').$fileName,"w");
+                //file_put_contents(storage_path('app/public/vignette/'. $fileName), file_get_contents($file));
+                //fclose($fp);
+                $vignette->receipt = $fileName;
+            }
+        $vignette->save();
+
+
+        //Vignette::create($validate);
 
         return redirect(route('vignettes.index'))->with('crudMessage', 'Vinjeta uspešno kreirana.');
     }

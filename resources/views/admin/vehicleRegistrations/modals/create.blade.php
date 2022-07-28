@@ -94,10 +94,10 @@
                     </div>
                         </div>
                         <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-                          <label for="expirationDate" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"> Važi do </label>
+                          <label for="expiration_date" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"> Važi do </label>
                           <div class="mt-1 sm:mt-0 sm:col-span-2">
                             <div class="flex items-center">
-                              <input readonly type="text" name="expirationDate" id="expirationDate" autocomplete="expirationDate" placeholder="Izaberi datum" class="datepicker max-w-lg block py-4 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
+                              <input readonly type="text" name="expiration_date" id="expiration_date" autocomplete="expiration_date" placeholder="Izaberi datum" class="datepicker max-w-lg block py-4 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
                               <div class="px-3 py-2 -ml-10">
                                 <svg
                                   class="h-6 w-6 text-gray-400"
@@ -117,7 +117,7 @@
                             
                             
                             <p class="text-red-500 text-sm italic mt-4">
-                              {{ $errors->create_vehicle_registration->first('expirationDate') }}
+                              {{ $errors->create_vehicle_registration->first('expiration_date') }}
                             </p>
                           </div>
                               </div>

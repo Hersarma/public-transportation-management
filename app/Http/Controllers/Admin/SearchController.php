@@ -46,7 +46,7 @@ class SearchController extends Controller
         $query = str_replace(" ", "%", $query);
         $vignettes = Vignette::with('vehicle')->whereHas('vehicle',function($q) use($query){
         $q->where('vehicleManufacturer', 'like', "%{$query}%");
-        })->orderBy('expirationDate', 'desc')->simplePaginate(10);
+        })->orderBy('expiration_date', 'desc')->simplePaginate(10);
         
         return view('admin.vignettes.searchVignette', compact('vignettes'))->render();
 

@@ -11,10 +11,10 @@ class VehicleRegistration extends Model
 
     protected $dates = [
         'purchase_date',
-        'expirationDate'
+        'expiration_date'
     ];
 
-    protected $fillable=['purchase_date', 'price', 'expirationDate', 'vehicle_id'];
+    protected $fillable=['purchase_date', 'price', 'expiration_date', 'vehicle_id'];
 
     public function vehicle() {
 

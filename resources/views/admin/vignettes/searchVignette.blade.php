@@ -32,7 +32,7 @@
           <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">{{ $vignette->vehicle->registrationPlate }}</td>
           <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">{{ $vignette->country }}</td>
           <td class="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell">{{ $vignette->purchase_date->format('d-m-Y') }}</td>
-          <td class="px-3 py-4 text-sm text-gray-500">{{ $vignette->expirationDate->format('d-m-Y') }}</td>
+          <td class="px-3 py-4 text-sm text-gray-500">{{ $vignette->expiration_date->format('d-m-Y') }}</td>
           <td class="px-3 py-4 text-sm text-gray-500 sm:table-cell">{{ $vignette->price }} din.</td>
           <td class="py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
             <a href="{{ route('vignettes.show', $vignette) }}" class="text-indigo-600 hover:text-indigo-900">Prikaži</a>

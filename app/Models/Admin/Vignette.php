@@ -11,10 +11,10 @@ class Vignette extends Model
 
      protected $dates = [
         'purchase_date',
-        'expirationDate'
+        'expiration_date'
     ];
 
-    protected $fillable=['purchase_date', 'country', 'price', 'expirationDate', 'vehicle_id'];
+    protected $fillable=['purchase_date', 'country', 'price', 'expiration_date', 'vehicle_id'];
 
     public function vehicle() {
 

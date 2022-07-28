@@ -17,7 +17,7 @@ class VehicleRegistrationController extends Controller
     public function index()
     {
         $vehicles = Vehicle::orderBy('vehicleManufacturer', 'asc')->simplePaginate(50);
-        $vehicleRegistrations = VehicleRegistration::with('vehicle')->orderBy('expirationDate', 'desc')->simplePaginate(10);
+        $vehicleRegistrations = VehicleRegistration::with('vehicle')->orderBy('expiration_date', 'desc')->simplePaginate(10);
         return view('admin.vehicleRegistrations.index', compact('vehicleRegistrations', 'vehicles'));
     }
 
@@ -34,7 +34,7 @@ class VehicleRegistrationController extends Controller
             'vehicle_id' => 'required',
             'price' => 'required|numeric',
             'purchase_date' => 'required',
-            'expirationDate' => 'required'
+            'expiration_date' => 'required'
         ]);
 
         VehicleRegistration::create($validate);

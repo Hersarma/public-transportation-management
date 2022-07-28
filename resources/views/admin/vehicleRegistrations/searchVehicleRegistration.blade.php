@@ -30,7 +30,7 @@
           </td>
           <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">{{ $vehicleRegistration->vehicle->registrationPlate }}</td>
           <td class="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell">{{ $vehicleRegistration->purchase_date->format('d-m-Y') }}</td>
-          <td class="px-3 py-4 text-sm text-gray-500">{{ $vehicleRegistration->expirationDate->format('d-m-Y') }}</td>
+          <td class="px-3 py-4 text-sm text-gray-500">{{ $vehicleRegistration->expiration_date->format('d-m-Y') }}</td>
           <td class="px-3 py-4 text-sm text-gray-500 sm:table-cell">{{ $vehicleRegistration->price }} din.</td>
           <td class="py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
             <a href="{{ route('vehicleRegistrations.show', $vehicleRegistration) }}" class="text-indigo-600 hover:text-indigo-900">Prikaži</a>

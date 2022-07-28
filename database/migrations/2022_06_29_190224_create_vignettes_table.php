@@ -19,7 +19,8 @@ return new class extends Migration
             $table->date('purchase_date');
             $table->string('country');
             $table->decimal('price', 10,2);
-            $table->date('expirationDate');
+            $table->date('expiration_date');
+            $table->string('receipt')->nullable();
             $table->timestamps();
 
             $table->foreign('vehicle_id')

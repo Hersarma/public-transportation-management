@@ -17,9 +17,6 @@
             </svg>
             Početna
           </a>
-          <a href="{{ route('homeDrivers') }}" class="text-white flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md" aria-current="page">
-            Za Vozače
-          </a>
           </div>
         </div>
         <div class="flex items-center md:ml-6">

@@ -81,11 +81,11 @@
                     </div>
                   </div>
                   <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-                    <label for="expirationDate" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"> Važi do </label>
+                    <label for="expiration_date" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"> Važi do </label>
                     <div class="mt-1 sm:mt-0 sm:col-span-2">
-                      <input readonly type="text" name="expirationDate" id="expirationDate" autocomplete="expirationDate" value="{{ $vignette->expirationDate->format('d-m-Y') }}" class="datepicker max-w-lg block py-4 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
+                      <input readonly type="text" name="expiration_date" id="expiration_date" autocomplete="expiration_date" value="{{ $vignette->expiration_date->format('d-m-Y') }}" class="datepicker max-w-lg block py-4 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
                       <p class="text-red-500 text-sm italic mt-4">
-                        {{ $errors->edit_vignette->first('expirationDate') }}
+                        {{ $errors->edit_vignette->first('expiration_date') }}
                       </p>
                     </div>
                   </div>

@@ -16,11 +16,6 @@
             </svg>
             Početna
           </a>
-          @role('admin')
-          <a href="{{ route('homeAdmin') }}" class="text-white flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md" aria-current="page">
-            Admin
-          </a>
-          @endrole
           </div>
         </div>
         <div class="flex items-center md:ml-6">

@@ -34,7 +34,7 @@ class DatabaseSeeder extends Seeder
             Vignette::create([
                 'vehicle_id' => $vehicle->id,
                 'purchase_date' => '7/13/2022',
-                'expirationDate' => '7/20/2022',
+                'expiration_date' => '7/20/2022',
                 'country' => 'Austrija',
                 'price' => 200
             ]);
