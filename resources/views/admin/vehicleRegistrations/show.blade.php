@@ -41,9 +41,29 @@
         <dt class="text-sm font-medium text-gray-500">Važi do</dt>
         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{$vehicleRegistration->expiration_date->format('d-m-Y')}}</dd>
       </div>
-      <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-        <dt class="text-sm font-medium text-gray-500">Cena</dt>
-        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ $vehicleRegistration->price }} din.</dd>
+      <div x-data="{open: false}">
+        <div class="hidden sm:block py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt class="text-sm font-medium text-gray-500">Cena</dt>
+          <dl>
+            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ $vehicleRegistration->price }} din.</dd>
+            @if(!empty($vehicleRegistration->receipt))
+            <dd class="mt-2 text-sm text-gray-900 sm:mt-2 sm:col-span-2">
+            <button @click="open = true" type="button" class="-ml-4 inline-flex items-center justify-center rounded-md border border-transparent bg-gray-700 px-4 py-2 text-sm font-medium text-yellow-400 shadow-sm hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 sm:w-auto">Prikaži račun</button>
+            </dd>
+            @endif
+          </dl>
+        </div>
+        <div class="sm:hidden flex items-center justify-between py-4">
+          <div>
+            <p class="text-sm font-medium text-gray-500">Cena</p>
+            <p class="mt-1 text-sm text-gray-900">{{ $vehicleRegistration->price }} din.</p>
+          </div>
+          
+          @if(!empty($vehicleRegistration->receipt))
+          <button @click="open = true" type="button" class="rounded-md border border-transparent bg-gray-700 px-4 py-2 text-sm font-medium text-yellow-400 shadow-sm hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 sm:w-auto">Prikaži račun</button>
+          @endif
+        </div>
+        @include('admin.vehicleRegistrations.modals.receipt')
       </div>
     </dl>
   </div>

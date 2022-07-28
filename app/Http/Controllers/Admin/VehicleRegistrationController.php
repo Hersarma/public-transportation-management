@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin\Vehicle;
 use App\Models\Admin\VehicleRegistration;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class VehicleRegistrationController extends Controller
 {
@@ -30,14 +32,40 @@ class VehicleRegistrationController extends Controller
     public function store(Request $request)
     {
         //dd($request);
-        $validate = request()->validateWithBag('create_vehicle_registration', [
+        /*$validate = request()->validateWithBag('create_vehicle_registration', [
             'vehicle_id' => 'required',
             'price' => 'required|numeric',
             'purchase_date' => 'required',
             'expiration_date' => 'required'
         ]);
 
-        VehicleRegistration::create($validate);
+        VehicleRegistration::create($validate);*/
+
+        $validate = request()->validateWithBag('create_vehicle_registration', [
+            'vehicle_id' => 'required',
+            'price' => 'required|numeric',
+            'purchase_date' => 'required',
+            'expiration_date' => 'required',
+            'receipt' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:5120'
+        ]);
+        $file = $request->file('receipt');
+        $vehicleRegistration = new VehicleRegistration;
+        
+        $vehicleRegistration->vehicle_id = $request->vehicle_id;
+        $vehicleRegistration->price = $request->price;
+        $vehicleRegistration->purchase_date = $request->purchase_date;
+        $vehicleRegistration->expiration_date = $request->expiration_date;
+
+
+        if($request->hasFile('receipt'))
+            {
+                
+                $fileName = uniqid().'_'.$file->getClientOriginalName();
+                Image::make($file->getRealPath())->resize('800', '800')->save(storage_path('app/public/registration/'.$fileName));
+                
+                $vehicleRegistration->receipt = $fileName;
+            }
+        $vehicleRegistration->save();
 
         return redirect(route('vehicleRegistrations.index'))->with('crudMessage', 'Registracija uspešno kreirana.');
     }
@@ -75,8 +103,11 @@ class VehicleRegistrationController extends Controller
      */
     public function destroy(vehicleRegistration $vehicleRegistration)
     {
+
+        $path = storage_path('app/public/registration/'.$vehicleRegistration->receipt);
+        File::delete($path);
         $vehicleRegistration->delete();
 
-         return redirect(route('vehicleRegistration.index'))->with('crudMessage', 'Registracija uspešno izbrisana.');
+         return redirect(route('vehicleRegistrations.index'))->with('crudMessage', 'Registracija uspešno izbrisana.');
     }
 }

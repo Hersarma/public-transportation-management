@@ -107,6 +107,24 @@
                       </p>
                     </div>
                   </div>
+                  <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                    <p class="text-sm font-medium text-gray-700 sm:mt-px sm:pt-2 mb-2"> Dodaj račun </p>
+                    <div class="mt-1 sm:mt-0 sm:col-span-2">
+                      <label for="receipt" class="w-1/4 text-sm text-slate-500
+                        mr-4 py-2 px-4
+                        rounded-full border-0
+                        text-sm font-semibold
+                        bg-violet-50 text-violet-700
+                        hover:bg-violet-100">
+                        Izaberi ...
+                      </label>
+                      <p class="fileName inline-flex"></p>
+                      <input type="file" name="receipt" id="receipt" autocomplete="receipt" class="sr-only">
+                      <p class="text-red-500 text-sm italic mt-4">
+                        {{ $errors->create_vignette->first('receipt') }}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

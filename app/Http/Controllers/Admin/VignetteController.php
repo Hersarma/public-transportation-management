@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin\Vehicle;
 use App\Models\Admin\Vignette;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Intervention\Image\ImageManagerStatic as Image;
 
 class VignetteController extends Controller
@@ -38,9 +39,9 @@ class VignetteController extends Controller
             'expiration_date' => 'required',
             'receipt' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:5120'
         ]);
-
-        $vignette = new Vignette;
         $file = $request->file('receipt');
+        $vignette = new Vignette;
+        
         $vignette->vehicle_id = $request->vehicle_id;
         $vignette->country = $request->country;
         $vignette->price = $request->price;
@@ -52,7 +53,7 @@ class VignetteController extends Controller
             {
                 
                 $fileName = uniqid().'_'.$file->getClientOriginalName();
-                Image::make($file->getRealPath())->resize('500', '500')->save(storage_path('app/public/vignette/'.$fileName));
+                Image::make($file->getRealPath())->resize('800', '800')->save(storage_path('app/public/vignette/'.$fileName));
                 
                 $vignette->receipt = $fileName;
             }
@@ -84,7 +85,14 @@ class VignetteController extends Controller
      */
     public function update(Request $request, Vignette $vignette)
     {
-        //
+            $validate = request()->validateWithBag('edit_vignette', [
+            'vehicle_id' => 'required',
+            'country' => 'required',
+            'price' => 'required|numeric',
+            'purchase_date' => 'required',
+            'expiration_date' => 'required',
+            'receipt' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:5120'
+        ]);
     }
 
     /**
@@ -94,7 +102,9 @@ class VignetteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Vignette $vignette)
-    {
+    {   
+        $path = storage_path('/app/public/vignette/'. $vignette->receipt);
+        File::delete($path);
         $vignette->delete();
 
          return redirect(route('vignettes.index'))->with('crudMessage', 'Vinjeta uspešno izbrisana.');
