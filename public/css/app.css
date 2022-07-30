@@ -687,9 +687,6 @@ select {
 .z-50 {
   z-index: 50;
 }
-.col-span-2 {
-  grid-column: span 2 / span 2;
-}
 .mx-2 {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
@@ -796,17 +793,14 @@ select {
 .ml-12 {
   margin-left: 3rem;
 }
+.-ml-4 {
+  margin-left: -1rem;
+}
 .ml-16 {
   margin-left: 4rem;
 }
 .ml-8 {
   margin-left: 2rem;
-}
-.-ml-4 {
-  margin-left: -1rem;
-}
-.mt-0 {
-  margin-top: 0px;
 }
 .block {
   display: block;
@@ -1051,9 +1045,6 @@ select {
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
-.grid-cols-3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
 .flex-col {
   flex-direction: column;
 }
@@ -1086,9 +1077,6 @@ select {
 }
 .gap-5 {
   gap: 1.25rem;
-}
-.gap-4 {
-  gap: 1rem;
 }
 .space-y-8 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
@@ -1453,6 +1441,10 @@ select {
   padding-left: 2rem;
   padding-right: 2rem;
 }
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
 .pl-4 {
   padding-left: 1rem;
 }
@@ -1509,6 +1501,12 @@ select {
 }
 .pt-1 {
   padding-top: 0.25rem;
+}
+.pr-6 {
+  padding-right: 1.5rem;
+}
+.pl-2 {
+  padding-left: 0.5rem;
 }
 .text-left {
   text-align: left;
@@ -1683,6 +1681,10 @@ select {
 .text-indigo-700 {
   --tw-text-opacity: 1;
   color: rgb(67 56 202 / var(--tw-text-opacity));
+}
+.text-red-900 {
+  --tw-text-opacity: 1;
+  color: rgb(127 29 29 / var(--tw-text-opacity));
 }
 .underline {
   -webkit-text-decoration-line: underline;

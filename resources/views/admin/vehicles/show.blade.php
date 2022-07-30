@@ -24,7 +24,20 @@
     <dl class="sm:divide-y sm:divide-gray-200">
       <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
         <dt class="text-sm font-medium text-gray-500">Registrovan do</dt>
-        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">21-10-2022 - Ističe za 254 dana.</dd>
+        @if($vehicleRegistration)
+        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ $vehicleRegistration->expiration_date->format('d-m-Y') }} - Ističe za {{ now()->diffInDays($vehicleRegistration->expiration_date) }} dana.</dd>
+        @else
+         <dd class="mt-1 text-sm text-red-500 sm:mt-0 sm:col-span-2">
+         <div class="flex items-center">
+           <p>Vozilo nije registrovano.</p>
+           <p class="pl-2"><svg class="h-6 w-6 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+          </p>
+         </div>
+         </dd>
+        @endif
+       
       </div>
       <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
         <dt class="text-sm font-medium text-gray-500">Vinjeta važi do</dt>
@@ -89,37 +102,6 @@
       <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
         <dt class="text-sm font-medium text-gray-500">Vrsta Goriva</dt>
         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ $vehicle->fuleType }}</dd>
-      </div>
-      <div class="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4 sm:px-6">
-        <dt class="text-sm font-medium text-gray-500">Dokumentacija</dt>
-        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-        <ul role="list" class="border border-gray-200 rounded-md divide-y divide-gray-200">
-          <li class="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
-            <div class="w-0 flex-1 flex items-center">
-              <!-- Heroicon name: solid/paper-clip -->
-              <span class="bg-gray-700 px-2 py-2 rounded-md mr-4"><i class="fa-solid fa-road fa-lg text-yellow-400"></i></span>
-              <p class="ml-2 flex-1 w-0 truncate"> Vinjeta </p>
-            </div>
-            <div class="ml-4 flex-shrink-0 flex space-x-4">
-              <button type="button" class="bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none">Izmeni</button>
-              <span class="text-gray-300" aria-hidden="true">|</span>
-              <button type="button" class="bg-white rounded-md font-medium text-red-600 hover:text-red-500 focus:outline-none">Izbriši</button>
-            </div>
-          </li>
-          <li class="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
-            <div class="w-0 flex-1 flex items-center">
-              <!-- Heroicon name: solid/paper-clip -->
-              <span class="bg-gray-700 px-2 py-2 rounded-md mr-4"><i class="fa-solid fa-registered fa-lg text-yellow-400"></i></span>
-              <p class="ml-2 flex-1 w-0 truncate"> Registracija </p>
-            </div>
-            <div class="ml-4 flex-shrink-0 flex space-x-4">
-              <button type="button" class="bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none">Izmeni</button>
-              <span class="text-gray-300" aria-hidden="true">|</span>
-              <button type="button" class="bg-white rounded-md font-medium text-red-600 hover:text-red-500 focus:outline-none">Izbriši</button>
-            </div>
-          </li>
-        </ul>
-        </dd>
       </div>
     </dl>
   </div>

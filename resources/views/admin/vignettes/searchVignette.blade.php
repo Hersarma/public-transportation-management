@@ -7,7 +7,7 @@
           <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">Država</th>
           <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell">Datum Kupovine</th>
           <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Važi do</th>
-          <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6 sm:table-cell">Cena</th>
+          <th scope="col" class="hidden py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6 sm:table-cell">Cena</th>
           <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
             <span class="sr-only">Prikaži</span>
           </th>
@@ -33,7 +33,7 @@
           <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">{{ $vignette->country }}</td>
           <td class="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell">{{ $vignette->purchase_date->format('d-m-Y') }}</td>
           <td class="px-3 py-4 text-sm text-gray-500">{{ $vignette->expiration_date->format('d-m-Y') }}</td>
-          <td class="px-3 py-4 text-sm text-gray-500 sm:table-cell">{{ $vignette->price }} din.</td>
+          <td class="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell">{{ $vignette->price }} din.</td>
           <td class="py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
             <a href="{{ route('vignettes.show', $vignette) }}" class="text-indigo-600 hover:text-indigo-900">Prikaži</a>
           </td>

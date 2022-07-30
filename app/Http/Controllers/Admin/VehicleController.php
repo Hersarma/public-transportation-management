@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Vehicle;
+use App\Models\Admin\VehicleRegistration;
 use Illuminate\Http\Request;
 
 class VehicleController extends Controller
@@ -62,7 +63,8 @@ class VehicleController extends Controller
      */
     public function show(Vehicle $vehicle)
     {
-        return view('admin.vehicles.show', compact('vehicle'));
+        $vehicleRegistration = VehicleRegistration::where('vehicle_id', $vehicle->id)->whereDate('expiration_date', '>', date('Y-m-d'))->first();
+        return view('admin.vehicles.show', compact('vehicle', 'vehicleRegistration'));
     }
 
     /**
