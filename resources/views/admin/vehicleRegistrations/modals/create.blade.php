@@ -54,7 +54,7 @@
                       <p class="text-red-500 text-sm italic mt-4">
                         {{ $errors->create_vehicle_registration->first('vehicle_id') }}
                       </p>
-                      <div x-cloak x-show="open" @click.away="open = false" class="absolute overflow-auto z-10 h-96 mt-6 w-full lg:w-2/3 bg-white rounded-md shadow">
+                      <div x-cloak x-show="open" @click.away="open = false" class="absolute overflow-auto z-10 h-96 w-full lg:w-2/3 bg-white rounded-md shadow">
                         <div class="relative border border-gray-300 rounded-md px-4 py-3 shadow-sm focus-within:ring-1 focus-within:ring-indigo-600 focus-within:border-indigo-600">
                           <label for="search_vehicle" class="absolute -top-1 left-2 -mt-px inline-block px-1 bg-white text-xs font-medium text-gray-900">Ime-Registracija</label>
                           <input type="search" name="search_vehicle" id="search_vehicle" class="search_vehicle block w-full border-0 p-0 text-gray-900 placeholder-gray-500 focus:ring-0 sm:text-sm" placeholder="Pretraga Vozila">

@@ -34,7 +34,7 @@
           <form method="POST" action="{{ route('vignettes.update', $vignette) }}" enctype="multipart/form-data" class="space-y-8 divide-y divide-gray-200 bg-white lg:px-8 px-2 py-4 rounded-lg">
             @csrf
             @method('PATCH')
-            <input type="text" name="vehicle_id" value="" class="set_vehicle_id hidden">
+            <input type="text" name="vehicle_id" value="{{ $vignette->vehicle_id }}" class="set_vehicle_id hidden">
             <div class="space-y-8 divide-y divide-gray-200 sm:space-y-5">
               <div class="pt-8 space-y-6 sm:pt-10 sm:space-y-5">
                 <div>
@@ -101,7 +101,7 @@
                   <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
                     <label for="price" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"> Cena </label>
                     <div class="mt-1 sm:mt-0 sm:col-span-2">
-                      <input type="text" name="price" id="price" autocomplete="price" value="{{ $vignette->price }} din." class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
+                      <input type="text" name="price" id="price" autocomplete="price" value="{{ $vignette->price }}" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
                       <p class="text-red-500 text-sm italic mt-4">
                         {{ $errors->edit_vignette->first('price') }}
                       </p>

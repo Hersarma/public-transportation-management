@@ -40,14 +40,6 @@ class VignetteController extends Controller
             'receipt' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:5120'
         ]);
         $file = $request->file('receipt');
-        $vignette = new Vignette;
-        
-        $vignette->vehicle_id = $request->vehicle_id;
-        $vignette->country = $request->country;
-        $vignette->price = $request->price;
-        $vignette->purchase_date = $request->purchase_date;
-        $vignette->expiration_date = $request->expiration_date;
-
 
         if($request->hasFile('receipt'))
             {
@@ -55,9 +47,9 @@ class VignetteController extends Controller
                 $fileName = uniqid().'_'.$file->getClientOriginalName();
                 Image::make($file->getRealPath())->resize('800', '800')->save(storage_path('app/public/vignette/'.$fileName));
                 
-                $vignette->receipt = $fileName;
+                $validate['receipt'] = $fileName;
             }
-        $vignette->save();
+        Vignette::create($validate);
 
 
         return redirect(route('vignettes.index'))->with('crudMessage', 'Vinjeta uspešno kreirana.');
@@ -93,6 +85,21 @@ class VignetteController extends Controller
             'expiration_date' => 'required',
             'receipt' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:5120'
         ]);
+            $file = $request->file('receipt');
+
+            if($request->hasFile('receipt'))
+            {
+                $path = storage_path('app/public/vignette/'. $vignette->receipt);
+                File::delete($path);
+                $fileName = uniqid().'_'.$file->getClientOriginalName();
+                Image::make($file->getRealPath())->resize('800', '800')->save(storage_path('app/public/vignette/'.$fileName));
+                
+                $validate['receipt'] = $fileName;
+            }
+
+            $vignette->update($validate);
+
+            return redirect(route('vignettes.show', $vignette))->with('crudMessage', 'Vinjeta uspešno izmenjena.');
     }
 
     /**

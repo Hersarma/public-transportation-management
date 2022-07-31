@@ -29,7 +29,7 @@
         @else
          <dd class="mt-1 text-sm text-red-500 sm:mt-0 sm:col-span-2">
          <div class="flex items-center">
-           <p>Vozilo nije registrovano.</p>
+           <a href="{{ route('vehicleRegistrations.index') }}">Vozilo nije registrovano.</a href="">
            <p class="pl-2"><svg class="h-6 w-6 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
             </svg>
@@ -41,7 +41,12 @@
       </div>
       <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
         <dt class="text-sm font-medium text-gray-500">Vinjeta važi do</dt>
-        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">21-10-2022 - Ističe za 6 dana.</dd>
+        <div>
+          @foreach($vignettes as $vignette)
+          <dd class="mt-1 mb-2 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ ucfirst($vignette->country) }} - {{ $vignette->expiration_date->format('d-m-Y') }} - Ističe za {{ now()->diffInDays($vignette->expiration_date) }} dana.</dd>
+          @endforeach
+        </div>
+        
       </div>
       <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
         <dt class="text-sm font-medium text-gray-500">Mali servis rađen na</dt>

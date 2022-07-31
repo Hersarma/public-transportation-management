@@ -31,15 +31,6 @@ class VehicleRegistrationController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request);
-        /*$validate = request()->validateWithBag('create_vehicle_registration', [
-            'vehicle_id' => 'required',
-            'price' => 'required|numeric',
-            'purchase_date' => 'required',
-            'expiration_date' => 'required'
-        ]);
-
-        VehicleRegistration::create($validate);*/
 
         $validate = request()->validateWithBag('create_vehicle_registration', [
             'vehicle_id' => 'required',
@@ -49,13 +40,7 @@ class VehicleRegistrationController extends Controller
             'receipt' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:5120'
         ]);
         $file = $request->file('receipt');
-        $vehicleRegistration = new VehicleRegistration;
         
-        $vehicleRegistration->vehicle_id = $request->vehicle_id;
-        $vehicleRegistration->price = $request->price;
-        $vehicleRegistration->purchase_date = $request->purchase_date;
-        $vehicleRegistration->expiration_date = $request->expiration_date;
-
 
         if($request->hasFile('receipt'))
             {
@@ -63,9 +48,9 @@ class VehicleRegistrationController extends Controller
                 $fileName = uniqid().'_'.$file->getClientOriginalName();
                 Image::make($file->getRealPath())->resize('800', '800')->save(storage_path('app/public/registration/'.$fileName));
                 
-                $vehicleRegistration->receipt = $fileName;
+                $validate['receipt'] = $fileName;
             }
-        $vehicleRegistration->save();
+        VehicleRegistration::create($validate);
 
         return redirect(route('vehicleRegistrations.index'))->with('crudMessage', 'Registracija uspešno kreirana.');
     }
@@ -92,7 +77,30 @@ class VehicleRegistrationController extends Controller
      */
     public function update(Request $request, vehicleRegistration $vehicleRegistration)
     {
-        //
+        $validate = request()->validateWithBag('edit_vehicle_registration', [
+            'vehicle_id' => 'required',
+            'price' => 'required|numeric',
+            'purchase_date' => 'required',
+            'expiration_date' => 'required',
+            'receipt' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:5120'
+        ]);
+        
+        $file = $request->file('receipt');
+        if ($request->hasFile('receipt')) {
+            $path = storage_path('app/public/registration/'. $vehicleRegistration->receipt);
+            File::delete($path);
+            $fileName = uniqid().'_'.$file->getClientOriginalName();
+                Image::make($file->getRealPath())->resize('800', '800')->save(storage_path('app/public/registration/'.$fileName));
+                
+                $validate['receipt'] = $fileName;
+
+        }
+
+        $vehicleRegistration->update($validate);
+
+        
+
+        return redirect(route('vehicleRegistrations.show', $vehicleRegistration))->with('crudMessage', 'Registracija uspešno izmenjena.');
     }
 
     /**

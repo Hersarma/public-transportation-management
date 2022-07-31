@@ -19,7 +19,7 @@
           <div class="absolute top-8 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pt-4 pr-4">
             <div class="bg-gray-700 rounded-md px-4 py-3">
               <!-- Heroicon name: outline/users -->
-               <i class="fa-solid fa-registered fa-lg text-yellow-400"></i>
+              <i class="fa-solid fa-registered fa-lg text-yellow-400"></i>
             </div>
           </div>
           <div class="absolute top-0 right-0 pt-4 pr-4">
@@ -34,7 +34,7 @@
           <form method="POST" action="{{ route('vehicleRegistrations.update', $vehicleRegistration) }}" enctype="multipart/form-data" class="space-y-8 divide-y divide-gray-200 bg-white lg:px-8 px-2 py-4 rounded-lg">
             @csrf
             @method('PATCH')
-            <input type="text" name="vehicle_id" value="" class="set_vehicle_id hidden">
+            <input type="text" name="vehicle_id" value="{{ $vehicleRegistration->vehicle_id }}" class="set_vehicle_id hidden">
             <div class="space-y-8 divide-y divide-gray-200 sm:space-y-5">
               <div class="pt-8 space-y-6 sm:pt-10 sm:space-y-5">
                 <div>
@@ -52,6 +52,9 @@
                           </svg>
                         </div>
                       </div>
+                      <p class="text-red-500 text-sm italic mt-4">
+                        {{ $errors->edit_vehicle_registration->first('vehicle_id') }}
+                      </p>
                       <div x-cloak x-show="open" @click.away="open = false" class="absolute overflow-auto z-10 h-96 mt-6 w-full lg:w-2/3 bg-white rounded-md shadow">
                         <div class="relative border border-gray-300 rounded-md px-4 py-3 shadow-sm focus-within:ring-1 focus-within:ring-indigo-600 focus-within:border-indigo-600">
                           <label for="search_vehicle" class="absolute -top-1 left-2 -mt-px inline-block px-1 bg-white text-xs font-medium text-gray-900">Ime-Registracija</label>
@@ -92,9 +95,27 @@
                   <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
                     <label for="price" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"> Cena </label>
                     <div class="mt-1 sm:mt-0 sm:col-span-2">
-                      <input type="text" name="price" id="price" autocomplete="price" value="{{ $vehicleRegistration->price }} din." class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
+                      <input type="text" name="price" id="price" autocomplete="price" value="{{ $vehicleRegistration->price }}" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
                       <p class="text-red-500 text-sm italic mt-4">
                         {{ $errors->edit_vehicle_registration->first('price') }}
+                      </p>
+                    </div>
+                  </div>
+                  <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                    <p class="text-sm font-medium text-gray-700 sm:mt-px sm:pt-2 mb-2"> Dodaj račun </p>
+                    <div class="mt-1 sm:mt-2 sm:col-span-2">
+                      <label for="receipt" class="w-1/4 text-sm text-slate-500
+                        mr-4 py-2 px-4
+                        rounded-full border-0
+                        text-sm font-semibold
+                        bg-violet-50 text-violet-700
+                        hover:bg-violet-100">
+                        Izaberi ...
+                      </label>
+                      <p class="fileName inline-flex"></p>
+                      <input type="file" name="receipt" id="receipt" autocomplete="receipt" class="sr-only">
+                      <p class="text-red-500 text-sm italic mt-4">
+                        {{ $errors->edit_vehicle_registration->first('receipt') }}
                       </p>
                     </div>
                   </div>
